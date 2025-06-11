@@ -1315,6 +1315,50 @@ according to applicable laws.
         .history-block:nth-child(4) { animation-delay: 0.7s; }
         .history-block:nth-child(5) { animation-delay: 0.9s; }
         .history-block:nth-child(6) { animation-delay: 1.1s; }
+      
+      
+      
+      
+      /* Typing Effect Styles */
+.typewriter-box {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-left: 5px solid var(--primary);
+    padding: 30px;
+    margin: 20px 0;
+    border-radius: 5px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+    animation: slideInFromBottom 0.8s ease-out forwards;
+    opacity: 0;
+}
+
+@keyframes slideInFromBottom {
+    from { transform: translateY(50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.typewriter-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #333;
+    white-space: pre-wrap;
+    border-right: 3px solid var(--primary);
+    overflow: hidden;
+    animation: blinkCursor 0.75s step-end infinite;
+}
+
+@keyframes blinkCursor {
+    from, to { border-color: transparent; }
+    50% { border-color: var(--primary); }
+}
+
+.history-block:nth-child(1) .typewriter-box { animation-delay: 0.2s; }
+.history-block:nth-child(2) .typewriter-box { animation-delay: 0.4s; }
+.history-block:nth-child(3) .typewriter-box { animation-delay: 0.6s; }
+.history-block:nth-child(4) .typewriter-box { animation-delay: 0.8s; }
+.history-block:nth-child(5) .typewriter-box { animation-delay: 1.0s; }
+.history-block:nth-child(6) .typewriter-box { animation-delay: 1.2s; }
     </style>
 </head>
 <body>
@@ -1377,16 +1421,16 @@ according to applicable laws.
             <!-- Block 1 -->
             <div class="history-block">
                 <div class="history-text">
-                    <p>În ce priveste istoria și evoluția inițială în karate, legenda spune că în anii 480 sau 520, un călugăr indian, pe nume Bodhidharma părăsea India pentru a se instala în templul Shaolin din nordul Chinei. Această mănăstire, aflată într-o pădurice, (Shao Lin Shi în chineză), a fost întemeiată în primul secol al erei noastre de un anume Batuo, numit "Primul strămoş" şi consacrat cu acest titlu în 496 de împăratul Xiaowen din acea vreme, care i-a acordat titlul de "Prima Mănăstire sub Cer", ceea ce a făcut ca aceasta să fie deja bine cunoscută înainte de sosirea lui Bodhidharma.</p>
-                    
-                    <p>Bodhidharma, a practicat diferite forme de gimnastică, mai mult sau mai puţin războinice, pe care le-a studiat în timpul vârstei sale tinere sub îndrumarea tatălui său. Acesta din urmă a fost, de fapt, pe lângă poziția sa de rege, un mare inițiat într-o Castă Indiană și cunoștea arta de a lupta, aproape de ceea ce este, în prezent, în India, forma de lupta kalaripayat.</p>
-                </div>
+    <div class="typewriter-box">
+        <div class="typewriter-text" id="textBlock1"></div>
+    </div>
+</div>
                 
                 <div class="history-image">
-                    <img src="bodhidharma.jpg" alt="Bodhidharma - fondatorul legendat al artei marțiale">
+                    <img src="Funakoshi.avif" alt="Imaginea nu este disponibila. Cod eroare [001]">
                     <div class="history-caption">
-                        <h3>Bodhidharma</h3>
-                        <p>Fondatorul legendat al artei marțiale</p>
+                        <h3>Funakoshi</h3>
+                        <p>Poate fi adaugat text</p>
                     </div>
                 </div>
             </div>
@@ -1394,16 +1438,16 @@ according to applicable laws.
             <!-- Block 2 -->
             <div class="history-block">
                 <div class="history-text">
-                    <p>El a dezvoltat, prin urmare, o metodă cunoscută ca o cale de "curăţare a muşchilor şi tendoanelor, purificare a măduvei sinusurilor"... "Yi Jing King Yi sui Jing", cunoscută și sub numele de Shi Ba Lo Han She (Shih pa Lohan Sho), sau Chin Ching şi Ekkinkyo (Ekk i Kin Kyo jya) în japoneză.</p>
-                    
-                    <p>De ce amintim toate acestea? Păi, această semi-gimnastică, metoda semimarțială a provocat un mare consum de cerneală în acea vreme, ea fiind considerată a fi la originea diferitelor practici marţiale celebre ale mănăstirii din Mica Pădure... astfel încât ele stau la baza celor mai multe dintre artele marţiale chineze (Wushu sau Kuoshu) şi, indirect, la originile profunde ale artelor marţiale japoneze (Bujutsu şi Budo).</p>
-                </div>
+    <div class="typewriter-box">
+        <div class="typewriter-text" id="textBlock1"></div>
+    </div>
+</div>
                 
                 <div class="history-image">
-                    <img src="shaolin-temple.jpg" alt="Templul Shaolin din China">
+                    <img src="1535494_797308583629463_430190964_n.avif" alt="Imaginea nu este disponibila. Cod eroare [001]"">
                     <div class="history-caption">
-                        <h3>Templul Shaolin</h3>
-                        <p>Locul de naștere al multor arte marțiale</p>
+                        <h3>Nume</h3>
+                        <p>Poate fi adaugat text</p>
                     </div>
                 </div>
             </div>
@@ -1411,36 +1455,34 @@ according to applicable laws.
             <!-- Block 3 -->
             <div class="history-block">
                 <div class="history-text">
-                    <p>Predarea acestor tehnici a fost şi este întotdeauna secretă. Difuzarea sa a fost posibilă în timpul invaziei Templului Shaolin, când călugării au fost obligați să fugă peste tot în China, devenind astfel promotori ai acestor tehnici de luptă. În zilele noastre, multe stiluri susțin că au la bază stilul Shaolin. Bodhidharma, care era considerat al 28-lea descendent al lui Buddha şi fondator al Chan, a difuzat Budismul în China, "Chan" fiind traducerea Zen în chineză.</p>
-                    
-                    <p>Naşterea artelor marţiale s-a făcut într-o perioadă de timp constantă în China, a existat un amestec permanent de exerciţii fizice, povestiri mitice şi filosofie.</p>
-                </div>
+    <div class="typewriter-box">
+        <div class="typewriter-text" id="textBlock1"></div>
+    </div>
+</div>
                 
                 <div class="history-image">
-                    <img src="ancient-martial-arts.jpg" alt="Arte marțiale antice în China">
+                    <img src="simoka.avif" alt="Imaginea nu este disponibila. Cod eroare [001]"">
                     <div class="history-caption">
-                        <h3>Arte Marțiale Antice</h3>
-                        <p>Practicate în China din cele mai vechi timpuri</p>
+                        <h3>Simoka</h3>
+                        <p>Poate fi adaugat text</p>
                     </div>
                 </div>
             </div>
             
-            <!-- Continue with more blocks following the same pattern -->
-            <!-- I'll show a few more examples -->
             
             <!-- Block 4 -->
             <div class="history-block">
                 <div class="history-text">
-                    <p>Poveştirile istorice despre crearea karate par a fi dominate, tot timpul, de dorinţa japoneză de a minimiza influenţa chineză. Se pare că practicile de război sau marţiale au fost foarte bine dezvoltate în China cu mult înainte de apariţia lui Bodhidharma.</p>
-                    
-                    <p>Sun Tzu, un general chinez, în cele treisprezece capitole ale lucrării "Arta războiului", o carte scrisă în secolul al patrulea, se ocupa, de exemplu, de arta pumnului (Quanfa sau Chuan fa) şi recomandă utilizarea sa de către ofiţeri, cu 800 ani înainte de sosirea lui Bodhidarma în China.</p>
-                </div>
+    <div class="typewriter-box">
+        <div class="typewriter-text" id="textBlock1"></div>
+    </div>
+</div>
                 
                 <div class="history-image">
-                    <img src="sun-tzu.jpg" alt="Sun Tzu - autorul Artei Războiului">
+                    <img src="caskan.avif" alt="Imaginea nu este disponibila. Cod eroare [001]"">
                     <div class="history-caption">
-                        <h3>Sun Tzu</h3>
-                        <p>Autorul "Artei Războiului"</p>
+                        <h3>Caskan</h3>
+                        <p>Poate fi adaugat text</p>
                     </div>
                 </div>
             </div>
@@ -1448,36 +1490,78 @@ according to applicable laws.
             <!-- Block 5 -->
             <div class="history-block">
                 <div class="history-text">
-                    <p>Istoricii japonezi din perioada naţionalistă au atribuit paternitatea artelor marţiale lui Bodhidharma și, indirect, curentului budist. Au ignorat originile taoiste intenţionat. Ei au ignorat astfel celelalte versiuni ale unei tradiţii chineze, cu care Imperiul Japonez istoric a avut foarte puține afinități.</p>
-                    
-                    <p>Mai mult decât atât, se pare că au existat într-adevăr 5 Temple cu numele de "Shaolin" în China. Călugării budiști ar fi găsit refugiu nu în templul Shaolin Quang-Zhou (de la care provin informațiile legate de kung-fu), ci în altă mănăstire din centrul Chinei, Song-chan în He Nan.</p>
-                </div>
+    <div class="typewriter-box">
+        <div class="typewriter-text" id="textBlock1"></div>
+    </div>
+</div>
                 
                 <div class="history-image">
-                    <img src="okinawa-te.jpg" alt="Practicarea Okinawa-te">
+                    <img src="taiji-kase.avif" alt="Imaginea nu este disponibila. Cod eroare [001]"">
                     <div class="history-caption">
-                        <h3>Okinawa-te</h3>
-                        <p>Stilul precursor al karate-ului modern</p>
+                        <h3>Taiji Kase</h3>
+                        <p>Poate fi adaugat text</p>
                     </div>
                 </div>
             </div>
             
-            <!-- Continue with all the remaining text blocks following the same pattern -->
-            <!-- Add images for Funakoshi, Miyagi, Itosu, etc. -->
+
             
             <!-- Final Block -->
             <div class="history-block">
                 <div class="history-text">
-                    <p>În perioada anilor '50 și '60 și mai târziu, în anii '70, această practică s-a extins și accentuat, Karate fiind practicat la nivelul întregii lumi. Din păcate, această răspândire a fost făcută de multe ori, de către instructori care nu au înțeles esența și efectele studiului Artei Marțiale Karate-Do, reducând esența acestei practici la formele de luptă pe care le dezvoltau, mai puțin în ceea ce privea aspectele educaționale. Aceștia au creat așa-numitul sistem de grup dizident și sistemul (stilul) "homemade".</p>
-                </div>
+    <div class="typewriter-box">
+        <div class="typewriter-text" id="textBlock1"></div>
+    </div>
+</div>
                 
                 <div class="history-image">
-                    <img src="modern-karate.jpg" alt="Karate modern">
+                    <img src="shibuya.avif" alt="Imaginea nu este disponibila. Cod eroare [001]"">
                     <div class="history-caption">
-                        <h3>Karate Modern</h3>
-                        <p>Evoluția continuă a artei marțiale</p>
+                        <h3>Shibuya</h3>
+                        <p>Poate fi adaugat text</p>
                     </div>
                 </div>
+
+ <div class="history-image">
+                    <img src="ochisim.avif" alt="Imaginea nu este disponibila. Cod eroare [001]"">
+                    <div class="history-caption">
+                        <h3>Ochisim</h3>
+                        <p>Poate fi adaugat text</p>
+                    </div>
+                </div>
+
+                 <div class="history-image">
+                    <img src="KAGAWA.avif" alt="Imaginea nu este disponibila. Cod eroare [001]"">
+                    <div class="history-caption">
+                        <h3>Kagawa</h3>
+                        <p>Poate fi adaugat text</p>
+                    </div>
+                </div>
+
+                  <div class="history-image">
+                    <img src="YAHARA.avif" alt="Imaginea nu este disponibila. Cod eroare [001]"">
+                    <div class="history-caption">
+                        <h3>Yahara</h3>
+                        <p>Poate fi adaugat text</p>
+                    </div>
+                </div>
+
+                 <div class="history-image">
+                    <img src="KAWAZOE.avif" alt="Imaginea nu este disponibila. Cod eroare [001]"">
+                    <div class="history-caption">
+                        <h3>Kawazoe</h3>
+                        <p>Poate fi adaugat text</p>
+                    </div>
+                </div>
+
+                  <div class="history-image">
+                    <img src="11088560_816817551736867_921200127149133.avif" alt="Imaginea nu este disponibila. Cod eroare [001]"">
+                    <div class="history-caption">
+                        <h3>Nume</h3>
+                        <p>Poate fi adaugat text</p>
+                    </div>
+                </div>
+                 
             </div>
         </div>
     </section>
@@ -1530,6 +1614,83 @@ according to applicable laws.
 
     <!-- JavaScript -->
     <script>
+      
+      
+      // Typewriter Effect
+const texts = [
+    "În ce priveste istoria și evoluția inițială în karate, legenda spune că în anii 480 sau 520, un călugăr indian, pe nume Bodhidharma părăsea India pentru a se instala în templul Shaolin din nordul Chinei. Această mănăstire, aflată într-o pădurice, (Shao Lin Shi în chineză), a fost întemeiată în primul secol al erei noastre de un anume Batuo, numit 'Primul strămoş' şi consacrat cu acest titlu în 496 de împăratul Xiaowen din acea vreme, care i-a acordat titlul de 'Prima Mănăstire sub Cer', ceea ce a făcut ca aceasta să fie deja bine cunoscută înainte de sosirea lui Bodhidharma. Bodhidharma, a practicat diferite forme de gimnastică, mai mult sau mai puţin războinice, pe care le-a studiat în timpul vârstei sale tinere sub îndrumarea tatălui său. Acesta din urmă a fost, de fapt, pe lângă poziția sa de rege, un mare inițiat într-o Castă Indiană și cunoștea arta de a lupta, aproape de ceea ce este, în prezent, în India, forma de lupta kalaripayat.",
+    
+    "El a dezvoltat, prin urmare, o metodă cunoscută ca o cale de 'curăţare a muşchilor şi tendoanelor, purificare a măduvei sinusurilor'... 'Yi Jing King Yi sui Jing', cunoscută și sub numele de Shi Ba Lo Han She (Shih pa Lohan Sho), sau Chin Ching şi Ekkinkyo (Ekk i Kin Kyo jya) în japoneză.De ce amintim toate acestea? Păi, această semi-gimnastică, metoda semimarțială a provocat un mare consum de cerneală în acea vreme, ea fiind considerată a fi la originea diferitelor practici marţiale celebre ale mănăstirii din Mica Pădure... astfel încât ele stau la baza celor mai multe dintre artele marţiale chineze (Wushu sau Kuoshu) şi, indirect, la originile profunde ale artelor marţiale japoneze (Bujutsu şi Budo).",
+    
+    "Predarea acestor tehnici a fost şi este întotdeauna secretă. Difuzarea sa a fost posibilă în timpul invaziei Templului Shaolin, când călugării au fost obligați să fugă peste tot în China, devenind astfel promotori ai acestor tehnici de luptă. În zilele noastre, multe stiluri susțin că au la bază stilul Shaolin. Bodhidharma, care era considerat al 28-lea descendent al lui Buddha şi fondator al Chan, a difuzat Budismul în China, 'Chan' fiind traducerea Zen în chineză. Naşterea artelor marţiale s-a făcut într-o perioadă de timp constantă în China, a existat un amestec permanent de exerciţii fizice, povestiri mitice şi filosofie.",
+  
+  "Poveştirile istorice despre crearea karate par a fi dominate, tot timpul, de dorinţa japoneză de a minimiza influenţa chineză. Se pare că practicile de război sau marţiale au fost foarte bine dezvoltate în China cu mult înainte de apariţia lui Bodhidharma.Sun Tzu, un general chinez, în cele treisprezece capitole ale lucrării 'Arta războiului', o carte scrisă în secolul al patrulea, se ocupa, de exemplu, de arta pumnului (Quanfa sau Chuan fa) şi recomandă utilizarea sa de către ofiţeri, cu 800 ani înainte de sosirea lui Bodhidarma în China.",
+  
+  "Istoricii japonezi din perioada naţionalistă au atribuit paternitatea artelor marţiale lui Bodhidharma și, indirect, curentului budist. Au ignorat originile taoiste intenţionat. Ei au ignorat astfel celelalte versiuni ale unei tradiţii chineze, cu care Imperiul Japonez istoric a avut foarte puține afinități. Mai mult decât atât, se pare că au existat într-adevăr 5 Temple cu numele de 'Shaolin' în China. Călugării budiști ar fi găsit refugiu nu în templul Shaolin Quang-Zhou (de la care provin informațiile legate de kung-fu), ci în altă mănăstire din centrul Chinei, Song-chan în He Nan.",
+  
+  "În perioada anilor '50 și '60 și mai târziu, în anii '70, această practică s-a extins și accentuat, Karate fiind practicat la nivelul întregii lumi. Din păcate, această răspândire a fost făcută de multe ori, de către instructori care nu au înțeles esența și efectele studiului Artei Marțiale Karate-Do, reducând esența acestei practici la formele de luptă pe care le dezvoltau, mai puțin în ceea ce privea aspectele educaționale. Aceștia au creat așa-numitul sistem de grup dizident și sistemul (stilul) 'homemade'.",
+  
+];
+
+function typeWriter(text, element, speed = 5) {
+    let i = 0;
+    element.textContent = '';
+    
+    function typing() {
+        if (i < text.length) {
+            element.textContent += text.charAt(i);
+            i++;
+            setTimeout(typing, speed);
+            
+            // Scroll ușor doar când ajungem aproape de sfârșitul elementului
+            if (i % 20 === 0) {
+                const { bottom } = element.getBoundingClientRect();
+                if (bottom > window.innerHeight - 50) {
+                    element.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                }
+            }
+        }
+    }
+    
+    typing();
+}
+
+// Pornire efect când elementul devine vizibil
+document.addEventListener('DOMContentLoaded', () => {
+    const textBlocks = document.querySelectorAll('.typewriter-text');
+    
+    if (textBlocks.length === 0) {
+        console.error("Nu s-au găsit elemente cu clasa 'typewriter-text'");
+        return;
+    }
+    
+    if (textBlocks.length > texts.length) {
+        console.warn(`Există ${textBlocks.length} elemente dar doar ${texts.length} texte definite`);
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const index = Array.from(textBlocks).indexOf(entry.target);
+                if (index !== -1 && texts[index]) {
+                    // Adăugăm un mic delay între animații pentru elementele care devin vizibile simultan
+                    setTimeout(() => {
+                        typeWriter(texts[index], entry.target);
+                    }, index * 200);
+                    observer.unobserve(entry.target);
+                }
+            }
+        });
+    }, {
+        threshold: 0.3 // Porneste animația când 30% din element este vizibil
+    });
+    
+    textBlocks.forEach(block => {
+        observer.observe(block);
+    });
+});
+      
+      
         // Mobile Menu Toggle
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const mainNav = document.getElementById('mainNav');
