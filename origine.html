@@ -1359,6 +1359,28 @@ according to applicable laws.
 .history-block:nth-child(4) .typewriter-box { animation-delay: 0.8s; }
 .history-block:nth-child(5) .typewriter-box { animation-delay: 1.0s; }
 .history-block:nth-child(6) .typewriter-box { animation-delay: 1.2s; }
+      
+      .simple-masters-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 40px;
+}
+
+.master-item {
+    width: 200px;
+    text-align: center;
+}
+
+.master-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid var(--primary);
+}
+      
     </style>
 </head>
 <body>
@@ -1522,49 +1544,36 @@ according to applicable laws.
                     </div>
                 </div>
 
- <div class="history-image">
-                    <img src="ochisim.avif" alt="Imaginea nu este disponibila. Cod eroare [001]"">
-                    <div class="history-caption">
-                        <h3>Ochisim</h3>
-                        <p>Poate fi adaugat text</p>
-                    </div>
-                </div>
 
-                 <div class="history-image">
-                    <img src="KAGAWA.avif" alt="Imaginea nu este disponibila. Cod eroare [001]"">
-                    <div class="history-caption">
-                        <h3>Kagawa</h3>
-                        <p>Poate fi adaugat text</p>
-                    </div>
-                </div>
-
-                  <div class="history-image">
-                    <img src="YAHARA.avif" alt="Imaginea nu este disponibila. Cod eroare [001]"">
-                    <div class="history-caption">
-                        <h3>Yahara</h3>
-                        <p>Poate fi adaugat text</p>
-                    </div>
-                </div>
-
-                 <div class="history-image">
-                    <img src="KAWAZOE.avif" alt="Imaginea nu este disponibila. Cod eroare [001]"">
-                    <div class="history-caption">
-                        <h3>Kawazoe</h3>
-                        <p>Poate fi adaugat text</p>
-                    </div>
-                </div>
-
-                  <div class="history-image">
-                    <img src="11088560_816817551736867_921200127149133.avif" alt="Imaginea nu este disponibila. Cod eroare [001]"">
-                    <div class="history-caption">
-                        <h3>Nume</h3>
-                        <p>Poate fi adaugat text</p>
-                    </div>
-                </div>
                  
             </div>
         </div>
     </section>
+                                                
+                                                <section>
+                                                <div class="simple-masters-grid">
+    <div class="master-item">
+        <img src="ochisim.avif" alt="Ochisim">
+        <p>Ochisim</p>
+    </div>
+    <div class="master-item">
+        <img src="KAGAWA.avif" alt="Kagawa">
+        <p>Kagawa</p>
+    </div>
+    <div class="master-item">
+        <img src="YAHARA.avif" alt="Yahara">
+        <p>Yahara</p>
+    </div>
+    <div class="master-item">
+        <img src="KAWAZOE.avif" alt="Kawazoe">
+        <p>Kawazoe</p>
+    </div>
+    <div class="master-item">
+        <img src="11088560_816817551736867_921200127149133.avif" alt="Imaginea nu este disponibila. Cod eroare [001]">
+        <p>Nume</p>
+    </div>
+</div>
+                                                </section>
 
     <footer>
         <div class="footer-content">
