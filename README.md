@@ -1,4 +1,4 @@
-# karate
+# TSKRO | © 2025 andreistx. | WEBSITE
  
 ATENȚIE: Acest cod este protejat de drepturile de autor.
 Orice copiere, reutilizare sau distribuire fără o autorizație expresă
