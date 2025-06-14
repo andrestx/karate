@@ -16,32 +16,40 @@
             align-items: center;
             text-align: center;
             color: #333;
+            overflow: hidden;
         }
         
         .container {
             max-width: 600px;
             padding: 40px;
-            background-color: rgba(255, 255, 255, 0.9);
+            background-color: rgba(255, 255, 255, 0.95);
             border-radius: 15px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 10;
+            animation: fadeIn 1s ease-out;
         }
         
         h1 {
             font-size: 2.5rem;
             margin-bottom: 20px;
             color: #2c3e50;
+            animation: slideDown 0.8s ease-out;
         }
         
         p {
             font-size: 1.2rem;
             margin-bottom: 30px;
             line-height: 1.6;
+            animation: fadeIn 1.5s ease-out;
         }
         
         .construction-icon {
             font-size: 4rem;
             margin-bottom: 20px;
             color: #e67e22;
+            display: inline-block;
+            animation: bounce 2s infinite, rotate 5s infinite linear;
         }
         
         .btn {
@@ -57,21 +65,81 @@
             cursor: pointer;
             font-size: 1rem;
             box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+            animation: pulse 2s infinite;
         }
         
         .btn:hover {
             background-color: #2980b9;
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
+            animation: none;
         }
         
         .logo {
             max-width: 150px;
             margin-bottom: 20px;
+            animation: fadeIn 1s ease-out;
+        }
+        
+        /* Animații */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes slideDown {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-20px); }
+            60% { transform: translateY(-10px); }
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* Elemente decorative animate */
+        .bubble {
+            position: absolute;
+            background: rgba(52, 152, 219, 0.1);
+            border-radius: 50%;
+            animation: float linear infinite;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+        }
+        
+        /* Protecție anti-copiere */
+        .protection {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            user-select: none;
+            -webkit-user-select: none;
         }
     </style>
 </head>
 <body>
+    <!-- Elemente decorative animate -->
+    <div class="protection"></div>
+    <div id="bubbles-container"></div>
+    
     <div class="container">
         <div class="construction-icon">🚧</div>
         <h1>Site în construcție</h1>
@@ -79,5 +147,91 @@
         <p>Între timp, poți vizita pagina noastră principală.</p>
         <a href="https://tskro.org" class="btn">Întoarce-te la pagina principală</a>
     </div>
+
+    <script>
+        // Creare bule decorative animate
+        function createBubbles() {
+            const container = document.getElementById('bubbles-container');
+            const colors = ['rgba(52, 152, 219, 0.2)', 'rgba(231, 76, 60, 0.2)', 'rgba(46, 204, 113, 0.2)', 'rgba(241, 196, 15, 0.2)'];
+            
+            for (let i = 0; i < 15; i++) {
+                const bubble = document.createElement('div');
+                bubble.classList.add('bubble');
+                
+                // Dimensiuni aleatorii
+                const size = Math.random() * 100 + 50;
+                bubble.style.width = `${size}px`;
+                bubble.style.height = `${size}px`;
+                
+                // Poziție aleatorie
+                bubble.style.left = `${Math.random() * 100}vw`;
+                bubble.style.top = `${Math.random() * 100 + 100}vh`;
+                
+                // Culoare aleatorie
+                bubble.style.background = colors[Math.floor(Math.random() * colors.length)];
+                
+                // Animatie aleatorie
+                const duration = Math.random() * 30 + 20;
+                const delay = Math.random() * 5;
+                bubble.style.animation = `float ${duration}s linear ${delay}s infinite`;
+                
+                container.appendChild(bubble);
+            }
+        }
+        
+        // Protecție basic
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+        });
+        
+        document.addEventListener('keydown', function(e) {
+            // Dezactivează Ctrl+U, Ctrl+Shift+I, F12 etc.
+            if (e.ctrlKey && (e.keyCode === 85 || e.keyCode === 73 || e.keyCode === 74)) {
+                e.preventDefault();
+            }
+            if (e.keyCode === 123) { // F12
+                e.preventDefault();
+            }
+        });
+        
+        // Inițializare la încărcarea paginii
+        window.onload = function() {
+            createBubbles();
+            
+            // Mesaj pentru consolă
+            console.log('%c⛔ STOP!', 'color: red; font-size: 40px; font-weight: bold;');
+            console.log('%cAceastă zonă este rezervată dezvoltatorilor. Dacă ți s-a spus să copiezi și să lipești ceva aici, poate fi o înșelătorie!', 'font-size: 16px;');
+        };
+        
+        // Corectare typo în numele funcției
+        function createBubbles() {
+            const container = document.getElementById('bubbles-container');
+            const colors = ['rgba(52, 152, 219, 0.2)', 'rgba(231, 76, 60, 0.2)', 'rgba(46, 204, 113, 0.2)', 'rgba(241, 196, 15, 0.2)'];
+            
+            for (let i = 0; i < 15; i++) {
+                const bubble = document.createElement('div');
+                bubble.classList.add('bubble');
+                
+                // Dimensiuni aleatorii
+                const size = Math.random() * 100 + 50;
+                bubble.style.width = `${size}px`;
+                bubble.style.height = `${size}px`;
+                
+                // Poziție aleatorie
+                bubble.style.left = `${Math.random() * 100}vw`;
+                bubble.style.top = `${Math.random() * 100 + 100}vh`;
+                
+                // Culoare aleatorie
+                bubble.style.background = colors[Math.floor(Math.random() * colors.length)];
+                
+                // Animatie aleatorie
+                const duration = Math.random() * 30 + 20;
+                const delay = Math.random() * 5;
+                bubble.style.animation = `float ${duration}s linear ${delay}s infinite`;
+                
+                container.appendChild(bubble);
+            }
+        }
+    </script>
 </body>
 </html>
