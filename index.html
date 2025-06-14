@@ -70,13 +70,29 @@ according to applicable laws.
         
         /* Header */
         header {
-            background: linear-gradient(135deg, var(--secondary), var(--dark));
-            color: white;
-            padding: 1rem;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
+    background: linear-gradient(135deg, var(--secondary), var(--dark));
+    color: white;
+    padding: 1rem;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    
+    /* Animatie gradient */
+    animation: gradientAnimation 8s ease infinite;
+    background-size: 200% 200%;
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
         
         .header-content {
             display: flex;
@@ -88,17 +104,7 @@ according to applicable laws.
             z-index: 2;
         }
 
-        @keyframes varGradientShift {
-    0% {
-        background: linear-gradient(135deg, var(--secondary), var(--dark));
-    }
-    50% {
-        background: linear-gradient(135deg, var(--dark), var(--secondary));
-    }
-    100% {
-        background: linear-gradient(135deg, var(--secondary), var(--dark));
-    }
-}
+        
         
         .logo {
             display: flex;
