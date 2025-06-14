@@ -1868,7 +1868,7 @@ function typeWriter(text, element, speed = 10) {
 }
 
 function initTypewriter() {
-    const boxes = document.querySelectorAll('.typewriter-box');
+    const boxes = document.querySelectorAll('.typewriter-box:not(.animated)');
     
     const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
@@ -1877,9 +1877,10 @@ function initTypewriter() {
                 const text = box.getAttribute('data-text');
                 const textElement = box.querySelector('.typewriter-text');
                 
-                if (text && textElement) {
+                if (text && textElement && !box.classList.contains('animated')) {
+                    box.classList.add('animated'); // Marchează ca animat
                     typeWriter(text, textElement, 20);
-                    observer.unobserve(box); // Oprește observarea după activare
+                    observer.unobserve(box);
                 }
             }
         });
