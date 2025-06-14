@@ -1868,7 +1868,7 @@ according to applicable laws!
 
 // Modern Typewriter Effect
 const texts = [
-    "   În ce priveste istoria și evoluția inițială în karate, legenda spune că în anii 480 sau 520, un călugăr indian, pe nume Bodhidharma părăsea India pentru a se instala în templul Shaolin din nordul Chinei. Această mănăstire, aflată într-o pădurice, (Shao Lin Shi în chineză), a fost întemeiată în primul secol al erei noastre de un anume Batuo, numit 'Primul strămoş' şi consacrat cu acest titlu în 496 de împăratul Xiaowen din acea vreme, care i-a acordat titlul de 'Prima Mănăstire sub Cer', ceea ce a făcut ca aceasta să fie deja bine cunoscută înainte de sosirea lui Bodhidharma. Bodhidharma, a practicat diferite forme de gimnastică, mai mult sau mai puţin războinice, pe care le-a studiat în timpul vârstei sale tinere sub îndrumarea tatălui său. Acesta din urmă a fost, de fapt, pe lângă poziția sa de rege, un mare inițiat într-o Castă Indiană și cunoștea arta de a lupta, aproape de ceea ce este, în prezent, în India, forma de lupta kalaripayat.",
+    "   În ce priveste istoria și evoluția inițială în karate, legenda spune că în anii 480 sau 520, un călugăr indian, pe nume Bodhidharma părăsea India pentru a se instala în templul Shaolin din nordul Chinei. Această mănăstire, aflată într-o pădurice, (Shao Lin Shi în chineză), a fost întemeiată în primul secol al erei noastre de un anume Batuo, numit 'Primul strămoş' şi consacrat cu acest titlu în 496 de împăratul Xiaowen din acea vreme, care i-a acordat titlul de 'Prima Mănăstire sub Cer', ceea ce a făcut ca aceasta să fie deja bine cunoscută înainte de sosirea lui Bodhidharma. Bodhidharma, a practicat diferite forme de gimnastică, mai mult sau mai puţin războinice, pe care le-a studiat în timpul vârstei sale tinere sub îndrumarea tatălui său. Acesta din urmă a fost, de fapt, pe lângă poziția sa de rege, un mare inițiat într-o Castă Indiană și cunoștea arta de a lupta, aproape de ceea ce este, în prezent, în India, forma de lupta kalaripayat." ,
     "   El a dezvoltat, prin urmare, o metodă cunoscută ca o cale de 'curăţare a muşchilor şi tendoanelor, purificare a măduvei sinusurilor'... 'Yi Jing King Yi sui Jing', cunoscută și sub numele de Shi Ba Lo Han She (Shih pa Lohan Sho), sau Chin Ching şi Ekkinkyo (Ekk i Kin Kyo jya) în japoneză.De ce amintim toate acestea? Păi, această semi-gimnastică, metoda semimarțială a provocat un mare consum de cerneală în acea vreme, ea fiind considerată a fi la originea diferitelor practici marţiale celebre ale mănăstirii din Mica Pădure... astfel încât ele stau la baza celor mai multe dintre artele marţiale chineze (Wushu sau Kuoshu) şi, indirect, la originile profunde ale artelor marţiale japoneze (Bujutsu şi Budo).",
     "   Predarea acestor tehnici a fost şi este întotdeauna secretă. Difuzarea sa a fost posibilă în timpul invaziei Templului Shaolin, când călugării au fost obligați să fugă peste tot în China, devenind astfel promotori ai acestor tehnici de luptă. În zilele noastre, multe stiluri susțin că au la bază stilul Shaolin. Bodhidharma, care era considerat al 28-lea descendent al lui Buddha şi fondator al Chan, a difuzat Budismul în China, 'Chan' fiind traducerea Zen în chineză. Naşterea artelor marţiale s-a făcut într-o perioadă de timp constantă în China, a existat un amestec permanent de exerciţii fizice, povestiri mitice şi filosofie.",   
  "   Poveştirile istorice despre crearea karate par a fi dominate, tot timpul, de dorinţa japoneză de a minimiza influenţa chineză. Se pare că practicile de război sau marţiale au fost foarte bine dezvoltate în China cu mult înainte de apariţia lui Bodhidharma.Sun Tzu, un general chinez, în cele treisprezece capitole ale lucrării 'Arta războiului', o carte scrisă în secolul al patrulea, se ocupa, de exemplu, de arta pumnului (Quanfa sau Chuan fa) şi recomandă utilizarea sa de către ofiţeri, cu 800 ani înainte de sosirea lui Bodhidarma în China.",
@@ -1903,16 +1903,23 @@ function initTypewriter() {
     const textBlocks = document.querySelectorAll('.typewriter-text');
     if (!textBlocks.length) return;
 
+    // Asigură-te că ai suficiente texte pentru toate blocurile
+    const adjustedTexts = texts.slice(0, textBlocks.length);
+
     const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry, index) => {
-            if (entry.isIntersecting && texts[index]) {
-                typeWriter(texts[index], entry.target, 20);
+            if (entry.isIntersecting && adjustedTexts[index]) {
+                typeWriter(adjustedTexts[index], entry.target, 20);
                 observer.unobserve(entry.target);
             }
         });
     }, { threshold: 0.2 });
 
-    textBlocks.forEach(block => observer.observe(block));
+    textBlocks.forEach((block, index) => {
+        if (adjustedTexts[index]) {
+            observer.observe(block);
+        }
+    });
 }
 
 // Scroll Animations for Images
