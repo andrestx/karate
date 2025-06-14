@@ -21,6 +21,7 @@ according to applicable laws!
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="icon" href="../images/logo.png" type="image/png">
      <script type="text/javascript" charset="UTF-8" src="//cdn.cookie-script.com/s/db490c81bc7de29f20a496fc188bbf3c.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
        :root {
             --primary: #e63946;
@@ -63,44 +64,47 @@ according to applicable laws!
       
       /* Three Images Section Styles */
     .three-images-section {
-        padding: 60px 20px;
-        background-color: var(--light);
-        text-align: center;
-    }
+    padding: 100px 20px 60px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    text-align: center;
+}
     
-    .images-container {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 30px;
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 20px;
-    }
+    
+.images-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
     
     .image-card {
-        flex: 1;
-        min-width: 280px;
-        max-width: 350px;
-        background: white;
-        border-radius: 10px;
-        overflow: hidden;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        transition: all 0.3s ease;
-    }
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    aspect-ratio: 1/1;
+}
     
     .image-card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 15px 30px rgba(0,0,0,0.15);
-    }
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+}
     
     .image-card img {
-        width: 100%;
-        height: 250px;
-        object-fit: cover;
-        border-bottom: 3px solid var(--primary);
-    }
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
     
+.image-card:hover img {
+    transform: scale(1.05);
+}
+
+
     .image-caption {
         padding: 20px;
     }
@@ -1180,44 +1184,103 @@ according to applicable laws!
       
         /* History Section Styles */
         .history-section {
-            padding: 80px 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+    padding: 80px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: white;
+}
+
         
         .history-container {
-            display: flex;
-            flex-direction: column;
-            gap: 60px;
-        }
-        
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+}
         .history-block {
-            display: flex;
-            align-items: center;
-            gap: 40px;
-            margin-bottom: 40px;
-        }
+    display: grid;
+    grid-template-columns: 1.5fr 1fr; /* Text mai lat, imagine mai îngustă */
+    gap: 50px;
+    align-items: center;
+    margin-bottom: 80px;
+}
         
         .history-text {
-            flex: 1;
-            min-width: 50%;
-        }
+    padding: 40px;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.05);
+    position: relative;
+    z-index: 1;
+}
         
-        .history-image {
-            flex: 1;
-            min-width: 50%;
-            position: relative;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
+.history-text::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 5px;
+    height: 100%;
+    background: linear-gradient(to bottom, var(--primary), var(--accent));
+    border-radius: 5px 0 0 5px;
+}
+
+/* Animație slide-in pentru imagini */
+.history-block.in-view .history-image {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.history-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.history-image:hover img {
+    transform: scale(1.05);
+}
+
+/* Efect de umbră la hover */
+.history-image:hover {
+    box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .history-block {
+        grid-template-columns: 1fr;
+    }
+    
+    .history-image {
+        max-width: 100%;
+        justify-self: center;
+    }
+}
+
+      .history-image {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+    aspect-ratio: 3/4; /* Proporție mai îngustă */
+    max-width: 350px; /* Lățime maximă controlată */
+    justify-self: end; /* Aliniere la dreapta */
+    opacity: 0; /* Ascuns inițial pentru animație */
+    transform: translateX(100px); /* Poziție inițială în dreapta */
+    transition: all 0.8s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.history-image:hover {
+    transform: scale(1.02);
+}
         
+
         .history-image img {
-            width: 100%;
-            height: auto;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
         
         .history-image:hover img {
             transform: scale(1.05);
@@ -1322,16 +1385,16 @@ according to applicable laws!
       
       /* Typing Effect Styles */
 .typewriter-box {
-    background-color: rgba(255, 255, 255, 0.9);
-    border-left: 5px solid var(--primary);
-    padding: 30px;
-    margin: 20px 0;
-    border-radius: 5px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    background: white;
+    border-radius: 12px;
+    padding: 40px;
+    margin: 0;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+    line-height: 1.8;
+    font-size: 1.1rem;
+    color: var(--text);
     position: relative;
     overflow: hidden;
-    animation: slideInFromBottom 0.8s ease-out forwards;
-    opacity: 0;
 }
 
 @keyframes slideInFromBottom {
@@ -1340,14 +1403,11 @@ according to applicable laws!
 }
 
 .typewriter-text {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    color: #333;
     white-space: pre-wrap;
-    border-right: 3px solid var(--primary);
-    overflow: hidden;
-    animation: blinkCursor 0.75s step-end infinite;
+    font-weight: 400;
+    color: var(--text);
 }
+
 
 @keyframes blinkCursor {
     from, to { border-color: transparent; }
@@ -1361,27 +1421,70 @@ according to applicable laws!
 .history-block:nth-child(5) .typewriter-box { animation-delay: 1.0s; }
 .history-block:nth-child(6) .typewriter-box { animation-delay: 1.2s; }
       
-      .simple-masters-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    padding: 40px;
+.simple-masters-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 30px;
+    padding: 60px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .master-item {
-    width: 200px;
     text-align: center;
+    transition: all 0.3s ease;
+}
+
+.master-item:hover {
+    transform: translateY(-10px);
 }
 
 .master-item img {
     width: 100%;
-    height: 200px;
+    height: 180px;
     object-fit: cover;
     border-radius: 50%;
-    border: 3px solid var(--primary);
+    border: 3px solid white;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
 }
-      
+
+.master-item:hover img {
+    border-color: var(--primary);
+    box-shadow: 0 10px 25px rgba(230, 57, 70, 0.3);
+}
+
+.master-item p {
+    margin-top: 15px;
+    font-weight: 600;
+    color: var(--secondary);
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .history-block {
+        grid-template-columns: 1fr;
+    }
+    
+    .history-block:nth-child(even) {
+        direction: rtl;
+    }
+    
+    .history-text, .history-image {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .images-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .simple-masters-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+}      
+
     </style>
 </head>
 <body>
@@ -1415,141 +1518,94 @@ according to applicable laws!
 
   
 
-  <section class="three-images-section">
-    <div class="section-title">
-        <h2>Originea Karate-ului</h2>
-      
-    </div>
-    <br>
+ <section class="three-images-section">
+    <h2 class="modern-section-title">Originea Karate-ului</h2>
     <div class="images-container">
         <div class="image-card">
-            <img src="../images/89716197_210064866776917_509704192444805.avif" alt="Imaginea nu este disponibila. Cod Eroare [001]">
-            
+            <img src="../images/89716197_210064866776917_509704192444805.avif" alt="Istoria Karate">
         </div>
-        
-        <div class="image-card" style="background-color: black;">
-            <img src="../images/tigrul.png" alt="Imaginea nu este disponibila. Cod Eroare [001]">
-            
-        </div>
-        
         <div class="image-card">
-            <img src="../images/[000201].avif" alt="Imaginea nu este disponibila. Cod Eroare [001]">
-            
+            <img src="../images/tigrul.png" alt="Simbolul Karate">
+        </div>
+        <div class="image-card">
+            <img src="../images/[000201].avif" alt="Karate Tradițional">
         </div>
     </div>
 </section>
-  
-   <section class="history-section" id="origine">
-        <div class="history-container">
-            <!-- Block 1 -->
-            <div class="history-block">
-                <div class="history-text">
-    <div class="typewriter-box">
-        <div class="typewriter-text" id="textBlock1"></div>
-    </div>
-</div>
-                
-                <div class="history-image">
-                    <img src="../images/Funakoshi.avif" alt="Imaginea nu este disponibila. Cod eroare [001]">
-                    <div class="history-caption">
-                        <h3>Funakoshi</h3>
-                        <p>Poate fi adaugat text</p>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Block 2 -->
-            <div class="history-block">
-                <div class="history-text">
-    <div class="typewriter-box">
-        <div class="typewriter-text" id="textBlock1"></div>
-    </div>
-</div>
-                
-                <div class="history-image">
-                    <img src="../images/1535494_797308583629463_430190964_n.avif" alt="Imaginea nu este disponibila. Cod eroare [001]"">
-                    <div class="history-caption">
-                        <h3>Nume</h3>
-                        <p>Poate fi adaugat text</p>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Block 3 -->
-            <div class="history-block">
-                <div class="history-text">
-    <div class="typewriter-box">
-        <div class="typewriter-text" id="textBlock1"></div>
-    </div>
-</div>
-                
-                <div class="history-image">
-                    <img src="../images/simoka.avif" alt="Imaginea nu este disponibila. Cod eroare [001]"">
-                    <div class="history-caption">
-                        <h3>Simoka</h3>
-                        <p>Poate fi adaugat text</p>
-                    </div>
-                </div>
-            </div>
-            
-            
-            <!-- Block 4 -->
-            <div class="history-block">
-                <div class="history-text">
-    <div class="typewriter-box">
-        <div class="typewriter-text" id="textBlock1"></div>
-    </div>
-</div>
-                
-                <div class="history-image">
-                    <img src="../images/caskan.avif" alt="Imaginea nu este disponibila. Cod eroare [001]"">
-                    <div class="history-caption">
-                        <h3>Caskan</h3>
-                        <p>Poate fi adaugat text</p>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Block 5 -->
-            <div class="history-block">
-                <div class="history-text">
-    <div class="typewriter-box">
-        <div class="typewriter-text" id="textBlock1"></div>
-    </div>
-</div>
-                
-                <div class="history-image">
-                    <img src="../images/taiji-kase.avif" alt="Imaginea nu este disponibila. Cod eroare [001]"">
-                    <div class="history-caption">
-                        <h3>Taiji Kase</h3>
-                        <p>Poate fi adaugat text</p>
-                    </div>
-                </div>
-            </div>
-            
 
-            
-            <!-- Final Block -->
-            <div class="history-block">
-                <div class="history-text">
-    <div class="typewriter-box">
-        <div class="typewriter-text" id="textBlock1"></div>
-    </div>
-</div>
-                
-                <div class="history-image">
-                    <img src="../images/shibuya.avif" alt="Imaginea nu este disponibila. Cod eroare [001]"">
-                    <div class="history-caption">
-                        <h3>Shibuya</h3>
-                        <p>Poate fi adaugat text</p>
-                    </div>
+<section class="history-section">
+    <div class="history-container">
+        <!-- Block 1 -->
+        <div class="history-block">
+            <div class="history-text">
+                <div class="typewriter-box">
+                    <div class="typewriter-text"></div>
                 </div>
-
-
-                 
+            </div>
+            <div class="history-image">
+                <img src="../images/Funakoshi.avif" alt="Funakoshi">
             </div>
         </div>
-    </section>
+
+<!-- Block 1 -->
+        <div class="history-block">
+            <div class="history-text">
+                <div class="typewriter-box">
+                    <div class="typewriter-text"></div>
+                </div>
+            </div>
+            <div class="history-image">
+                <img src="../images/Funakoshi.avif" alt="Funakoshi">
+            </div>
+        </div>
+
+
+<!-- Block 1 -->
+        <div class="history-block">
+            <div class="history-text">
+                <div class="typewriter-box">
+                    <div class="typewriter-text"></div>
+                </div>
+            </div>
+            <div class="history-image">
+                <img src="../images/Funakoshi.avif" alt="Funakoshi">
+            </div>
+        </div>
+        
+        <!-- Block 2 -->
+        <div class="history-block">
+            <div class="history-text">
+                <div class="typewriter-box">
+                    <div class="typewriter-text"></div>
+                </div>
+            </div>
+            <div class="history-image">
+                <img src="../images/1535494_797308583629463_430190964_n.avif" alt="Istorie Karate">
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="modern-masters-section">
+    <div class="simple-masters-grid">
+        <div class="master-item">
+            <img src="../images/ochisim.png" alt="Ochisim">
+            <p>Ochisim</p>
+        </div>
+        <div class="master-item">
+            <img src="../images/KAGAWA.avif" alt="Kagawa">
+            <p>Kagawa</p>
+        </div>
+        <div class="master-item">
+            <img src="../images/YAHARA.avif" alt="Yahara">
+            <p>Yahara</p>
+        </div>
+        <div class="master-item">
+            <img src="../images/KAWAZOE.avif" alt="Kawazoe">
+            <p>Kawazoe</p>
+        </div>
+    </div>
+</section>
                                                 
                                                 <section>
                                                 <div class="simple-masters-grid">
@@ -1570,7 +1626,7 @@ according to applicable laws!
         <p>Kawazoe</p>
     </div>
     <div class="master-item">
-        <img src="../images/cineva.png" alt="Imaginea nu este disponibila. Cod eroare [001]">
+        <img src="../images/cineva.png" alt="Imsaginea nu este disponibila. Cod eroare [001]">
         <p>Nume</p>
     </div>
 </div>
@@ -1665,23 +1721,38 @@ according to applicable laws!
     <script>
       
       
-      // Typewriter Effect
+  // Modern Typewriter Effect
 const texts = [
-    "   În ce priveste istoria și evoluția inițială în karate, legenda spune că în anii 480 sau 520, un călugăr indian, pe nume Bodhidharma părăsea India pentru a se instala în templul Shaolin din nordul Chinei. Această mănăstire, aflată într-o pădurice, (Shao Lin Shi în chineză), a fost întemeiată în primul secol al erei noastre de un anume Batuo, numit 'Primul strămoş' şi consacrat cu acest titlu în 496 de împăratul Xiaowen din acea vreme, care i-a acordat titlul de 'Prima Mănăstire sub Cer', ceea ce a făcut ca aceasta să fie deja bine cunoscută înainte de sosirea lui Bodhidharma. Bodhidharma, a practicat diferite forme de gimnastică, mai mult sau mai puţin războinice, pe care le-a studiat în timpul vârstei sale tinere sub îndrumarea tatălui său. Acesta din urmă a fost, de fapt, pe lângă poziția sa de rege, un mare inițiat într-o Castă Indiană și cunoștea arta de a lupta, aproape de ceea ce este, în prezent, în India, forma de lupta kalaripayat.",
+    "În ce privește istoria și evoluția inițială în karate, legenda spune că în anii 480 sau 520, un călugăr indian pe nume Bodhidharma a părăsit India pentru a se instala în templul Shaolin din nordul Chinei...",
     
-    "   El a dezvoltat, prin urmare, o metodă cunoscută ca o cale de 'curăţare a muşchilor şi tendoanelor, purificare a măduvei sinusurilor'... 'Yi Jing King Yi sui Jing', cunoscută și sub numele de Shi Ba Lo Han She (Shih pa Lohan Sho), sau Chin Ching şi Ekkinkyo (Ekk i Kin Kyo jya) în japoneză.De ce amintim toate acestea? Păi, această semi-gimnastică, metoda semimarțială a provocat un mare consum de cerneală în acea vreme, ea fiind considerată a fi la originea diferitelor practici marţiale celebre ale mănăstirii din Mica Pădure... astfel încât ele stau la baza celor mai multe dintre artele marţiale chineze (Wushu sau Kuoshu) şi, indirect, la originile profunde ale artelor marţiale japoneze (Bujutsu şi Budo).",
+    "El a dezvoltat o metodă cunoscută ca o cale de 'curățare a mușchilor și tendoanelor, purificare a măduvei sinusurilor'...",
     
-    "   Predarea acestor tehnici a fost şi este întotdeauna secretă. Difuzarea sa a fost posibilă în timpul invaziei Templului Shaolin, când călugării au fost obligați să fugă peste tot în China, devenind astfel promotori ai acestor tehnici de luptă. În zilele noastre, multe stiluri susțin că au la bază stilul Shaolin. Bodhidharma, care era considerat al 28-lea descendent al lui Buddha şi fondator al Chan, a difuzat Budismul în China, 'Chan' fiind traducerea Zen în chineză. Naşterea artelor marţiale s-a făcut într-o perioadă de timp constantă în China, a existat un amestec permanent de exerciţii fizice, povestiri mitice şi filosofie.",
+    "Predarea acestor tehnici a fost întotdeauna secretă. Difuzarea sa a fost posibilă în timpul invaziei Templului Shaolin...",
   
-  "   Poveştirile istorice despre crearea karate par a fi dominate, tot timpul, de dorinţa japoneză de a minimiza influenţa chineză. Se pare că practicile de război sau marţiale au fost foarte bine dezvoltate în China cu mult înainte de apariţia lui Bodhidharma.Sun Tzu, un general chinez, în cele treisprezece capitole ale lucrării 'Arta războiului', o carte scrisă în secolul al patrulea, se ocupa, de exemplu, de arta pumnului (Quanfa sau Chuan fa) şi recomandă utilizarea sa de către ofiţeri, cu 800 ani înainte de sosirea lui Bodhidarma în China.",
+    "Poveștirile istorice despre crearea karate par a fi dominate de dorința japoneză de a minimiza influența chineză...",
   
-  "   Istoricii japonezi din perioada naţionalistă au atribuit paternitatea artelor marţiale lui Bodhidharma și, indirect, curentului budist. Au ignorat originile taoiste intenţionat. Ei au ignorat astfel celelalte versiuni ale unei tradiţii chineze, cu care Imperiul Japonez istoric a avut foarte puține afinități. Mai mult decât atât, se pare că au existat într-adevăr 5 Temple cu numele de 'Shaolin' în China. Călugării budiști ar fi găsit refugiu nu în templul Shaolin Quang-Zhou (de la care provin informațiile legate de kung-fu), ci în altă mănăstire din centrul Chinei, Song-chan în He Nan.",
-  
-  "   În perioada anilor '50 și '60 și mai târziu, în anii '70, această practică s-a extins și accentuat, Karate fiind practicat la nivelul întregii lumi. Din păcate, această răspândire a fost făcută de multe ori, de către instructori care nu au înțeles esența și efectele studiului Artei Marțiale Karate-Do, reducând esența acestei practici la formele de luptă pe care le dezvoltau, mai puțin în ceea ce privea aspectele educaționale. Aceștia au creat așa-numitul sistem de grup dizident și sistemul (stilul) 'homemade'.",
-  
+    "În perioada anilor '50 și '60, această practică s-a extins la nivel mondial. Din păcate, această răspândire a fost făcută de multe ori de către instructori care nu au înțeles esența Artei Marțiale Karate-Do...",
 ];
 
-function typeWriter(text, element, speed = 5) {
+// Enhanced Typewriter with Smooth Scrolling
+function initTypewriter() {
+    const textBlocks = document.querySelectorAll('.typewriter-text');
+    
+    if (!textBlocks.length) return;
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting && texts[index]) {
+                typeWriter(texts[index], entry.target, 20);
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.2 });
+
+    textBlocks.forEach(block => observer.observe(block));
+}
+
+function typeWriter(text, element, speed = 10) {
     let i = 0;
     element.textContent = '';
     
@@ -1689,53 +1760,38 @@ function typeWriter(text, element, speed = 5) {
         if (i < text.length) {
             element.textContent += text.charAt(i);
             i++;
-            setTimeout(typing, speed);
             
-            // Scroll ușor doar când ajungem aproape de sfârșitul elementului
-            if (i % 20 === 0) {
+            // Smooth scroll only when near bottom
+            if (i % 40 === 0) {
                 const { bottom } = element.getBoundingClientRect();
-                if (bottom > window.innerHeight - 50) {
-                    element.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                if (bottom > window.innerHeight - 100) {
+                    window.scrollBy({
+                        top: 30,
+                        behavior: 'smooth'
+                    });
                 }
             }
+            
+            setTimeout(typing, speed);
         }
     }
     
     typing();
 }
 
-// Pornire efect când elementul devine vizibil
+// Initialize when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
-    const textBlocks = document.querySelectorAll('.typewriter-text');
+    initTypewriter();
     
-    if (textBlocks.length === 0) {
-        console.error("Nu s-au găsit elemente cu clasa 'typewriter-text'");
-        return;
-    }
-    
-    if (textBlocks.length > texts.length) {
-        console.warn(`Există ${textBlocks.length} elemente dar doar ${texts.length} texte definite`);
-    }
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const index = Array.from(textBlocks).indexOf(entry.target);
-                if (index !== -1 && texts[index]) {
-                    // Adăugăm un mic delay între animații pentru elementele care devin vizibile simultan
-                    setTimeout(() => {
-                        typeWriter(texts[index], entry.target);
-                    }, index * 200);
-                    observer.unobserve(entry.target);
-                }
-            }
+    // Add hover effects to history images
+    const historyImages = document.querySelectorAll('.history-image');
+    historyImages.forEach(img => {
+        img.addEventListener('mouseenter', () => {
+            img.style.transform = 'scale(1.03)';
         });
-    }, {
-        threshold: 0.3 // Porneste animația când 30% din element este vizibil
-    });
-    
-    textBlocks.forEach(block => {
-        observer.observe(block);
+        img.addEventListener('mouseleave', () => {
+            img.style.transform = 'scale(1)';
+        });
     });
 });
       
@@ -1953,6 +2009,44 @@ hero.addEventListener('mouseleave', () => {
         
         window.addEventListener('scroll', animateOnScroll);
         window.addEventListener('load', animateOnScroll);
+
+
+
+// Intersection Observer pentru animații
+function initScrollAnimations() {
+    const historyBlocks = document.querySelectorAll('.history-block');
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('in-view');
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -100px 0px'
+    });
+
+    historyBlocks.forEach(block => {
+        observer.observe(block);
+    });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    initTypewriter();
+    initScrollAnimations();
+    
+    // Efecte hover pentru imagini
+    const images = document.querySelectorAll('.history-image');
+    images.forEach(img => {
+        img.addEventListener('mouseenter', () => {
+            img.style.transform = 'translateX(0) scale(1.03)';
+        });
+        img.addEventListener('mouseleave', () => {
+            img.style.transform = 'translateX(0) scale(1)';
+        });
+    });
+});
     </script>
 </body>
 </html>
