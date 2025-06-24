@@ -5,10 +5,12 @@
 📜 Orice încălcare va fi tratată conform legii – cu măsuri legale clare.
 
 🔒 LICENȚĂ & PROTECȚIE LEGALĂ
+
 🇷🇴 Versiunea în limba română:
 📌 Acest cod este protejat conform legii drepturilor de autor.
 ✋ Este STRICT INTERZISĂ copierea, redistribuirea sau reutilizarea parțială sau totală fără acordul expres, în scris, al autorului.
 ⚖️ Nerespectarea acestor condiții va duce la acțiuni legale în conformitate cu legislația în vigoare.
+
 
 🌐 English Version:
 📌 This code is legally protected under copyright law.
