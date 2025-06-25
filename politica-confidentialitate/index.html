@@ -4,162 +4,372 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TSK Romania | Politica de Confidențialitate</title>
-      <link rel="icon" href="../images/logo.png" type="image/png">
+    <link rel="icon" href="../images/logo.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script type="text/javascript" charset="UTF-8" src="//cdn.cookie-script.com/s/db490c81bc7de29f20a496fc188bbf3c.js"></script>
     <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-81JP2C344J"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-81JP2C344J');
-</script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-81JP2C344J"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-81JP2C344J');
+    </script>
     <style>
+        :root {
+            --primary: #e63946;
+            --secondary: #1d3557;
+            --light: #F5F5F5;
+            --accent: #a8dadc;
+            --dark: #457b9d;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
         body {
-            font-family: 'Arial', sans-serif;
+            background-color: var(--light);
+            color: var(--secondary);
             line-height: 1.6;
-            color: #333;
-            max-width: 800px;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--secondary), var(--dark));
+            color: white;
+            padding: 1rem;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 20px;
+            position: relative;
+            z-index: 2;
         }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 60px;
+            margin-right: 15px;
+        }
+        
+        .logo-text h1 {
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+        }
+        
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .privacy-content {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+        
         h1 {
-            color: #2c3e50;
-            border-bottom: 2px solid #3498db;
-            padding-bottom: 10px;
+            color: var(--secondary);
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
         }
+        
+        h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+        }
+        
         h2 {
-            color: #2980b9;
-            margin-top: 25px;
+            color: var(--dark);
+            margin: 30px 0 15px;
+            font-size: 1.8rem;
         }
+        
         .last-updated {
             font-style: italic;
             color: #7f8c8d;
             margin-bottom: 30px;
+            display: block;
         }
+        
         .section {
-            margin-bottom: 20px;
-            padding-bottom: 20px;
+            margin-bottom: 30px;
+            padding-bottom: 30px;
             border-bottom: 1px solid #eee;
         }
-        .contact-info {
-            background-color: #f8f9fa;
-            padding: 15px;
-            border-radius: 5px;
-            margin-top: 20px;
+        
+        p, li {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+            line-height: 1.7;
         }
+        
+        ul, ol {
+            padding-left: 20px;
+            margin-bottom: 20px;
+        }
+        
+        li {
+            margin-bottom: 10px;
+        }
+        
+        .contact-info {
+            background-color: var(--accent);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 30px;
+        }
+        
+        /* Footer */
         footer {
-            margin-top: 40px;
+            background-color: var(--secondary);
+            color: white;
+            padding: 30px 20px;
             text-align: center;
-            font-size: 0.9em;
-            color: #7f8c8d;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            text-align: left;
+            margin-bottom: 30px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background-color: var(--primary);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+            opacity: 0.8;
+        }
+        
+        .footer-links a:hover {
+            opacity: 1;
+            color: var(--accent);
+            padding-left: 5px;
+        }
+        
+        .copyright {
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+        
+        .designer-name {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.7);
+            position: relative;
+            display: inline-block;
+            transition: color 0.3s ease;
+        }
+        
+        .designer-name:hover {
+            color: white;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .privacy-content {
+                padding: 30px 20px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Politica de Confidențialitate</h1>
-        <div class="last-updated">
-            Data actualizării: 16-06-2025<br>
-            Data intrării în vigoare: 16-06-2025
+        <div class="header-content">
+            <div class="logo">
+                <img src="../images/logo.png" alt="Logo TSK Romania">
+                <div class="logo-text">
+                    <h1>TSK Romania</h1>
+                </div>
+            </div>
         </div>
     </header>
 
-    <main>
-        <div class="section">
-            <p>Această Politică de confidențialitate descrie politica societății TSK Romania, Brașov, România, email: tsk.ro@gmail.com, telefon: +40 775 360 802, cu privire la colectarea, utilizarea și partajarea datelor personale în cazul utilizării site-ului nostru tskro.org, denumit în continuare „Serviciul”.</p>
-            <p>Prin accesarea și utilizarea Serviciului, îți exprimi acordul cu privire la colectarea, utilizarea și partajarea datelor personale, conform acestei Politici de confidențialitate. Dacă nu ești de acord, te rugăm să nu utilizezi Serviciul nostru.</p>
-            <p>Putem modifica această Politică de confidențialitate în orice moment, fără notificare prealabilă. Vom publica varianta actualizată și data intrării în vigoare. Politica modificată va intra în vigoare în termen de 180 de zile de la publicare pentru toți utilizatorii existenți. Continuarea utilizării Serviciului constituie acceptul tău privind noua versiune. Îți recomandăm să verifici periodic această pagină.</p>
-        </div>
+    <div class="container">
+        <div class="privacy-content">
+            <h1>Politica de Confidențialitate</h1>
+            <span class="last-updated">
+                Data actualizării: 16-06-2025<br>
+                Data intrării în vigoare: 16-06-2025
+            </span>
 
-        <h2>INFORMAȚIILE PE CARE LE COLECTĂM</h2>
-        <div class="section">
-            <p>Colectăm și procesăm următoarele date personale legate de accesarea și utilizarea Serviciului:</p>
-            <ul>
-                <li>Date colectate automat prin cookie-uri și tehnologii similare;</li>
-                <li>Date oferite voluntar prin formularele de contact.</li>
-            </ul>
-            <p>Nu colectăm date la înregistrarea conturilor sau pentru abonări la newsletter, și nu procesăm plăți prin Serviciu.</p>
-        </div>
+            <div class="section">
+                <p>Această Politică de confidențialitate descrie politica societății TSK Romania, Brașov, România, email: tsk.ro@gmail.com, telefon: +40 775 360 802, cu privire la colectarea, utilizarea și partajarea datelor personale în cazul utilizării site-ului nostru tskro.org, denumit în continuare „Serviciul”.</p>
+                <p>Prin accesarea și utilizarea Serviciului, îți exprimi acordul cu privire la colectarea, utilizarea și partajarea datelor personale, conform acestei Politici de confidențialitate. Dacă nu ești de acord, te rugăm să nu utilizezi Serviciul nostru.</p>
+                <p>Putem modifica această Politică de confidențialitate în orice moment, fără notificare prealabilă. Vom publica varianta actualizată și data intrării în vigoare. Politica modificată va intra în vigoare în termen de 180 de zile de la publicare pentru toți utilizatorii existenți. Continuarea utilizării Serviciului constituie acceptul tău privind noua versiune. Îți recomandăm să verifici periodic această pagină.</p>
+            </div>
 
-        <h2>CUM COLECTĂM ACESTE INFORMAȚII</h2>
-        <div class="section">
-            <p>Datele sunt colectate în următoarele situații:</p>
-            <ol>
-                <li><strong>Deschiderea unui cont nou</strong> – Nu aplicabil;</li>
-                <li><strong>Interacțiunea cu site-ul</strong> – Cookie-uri (ex: Google Analytics), alte tehnologii de urmărire în conformitate cu Politica de Cookie-uri;</li>
-                <li><strong>Abonarea la newsletter / comunicări comerciale</strong> – Nu aplicabil;</li>
-                <li><strong>Contact direct prin formulare / email</strong> – Se colectează informațiile furnizate voluntar (nume, email etc.);</li>
-                <li><strong>Plăți online</strong> – Nu aplicabil; plățile, dacă vor exista în viitor, se vor realiza prin procesatori securizați (ex: PayPal, Stripe, MobilPay), fără a stoca date de card.</li>
-            </ol>
-        </div>
+            <h2>INFORMAȚIILE PE CARE LE COLECTĂM</h2>
+            <div class="section">
+                <p>Colectăm și procesăm următoarele date personale legate de accesarea și utilizarea Serviciului:</p>
+                <ul>
+                    <li>Date colectate automat prin cookie-uri și tehnologii similare;</li>
+                    <li>Date oferite voluntar prin formularele de contact.</li>
+                </ul>
+                <p>Nu colectăm date la înregistrarea conturilor sau pentru abonări la newsletter, și nu procesăm plăți prin Serviciu.</p>
+            </div>
 
-        <h2>CUM FOLOSIM INFORMAȚIILE COLECTATE</h2>
-        <div class="section">
-            <p>Folosim informațiile colectate în următoarele scopuri:</p>
-            <ul>
-                <li>Pentru analiză statistică și îmbunătățirea funcționalității Serviciului;</li>
-                <li>Pentru colectarea feedback-ului și evaluarea interesului utilizatorilor;</li>
-                <li>În scopuri de marketing general (fără personalizare individuală);</li>
-                <li>Pentru răspunsuri la solicitări primite prin email/formular.</li>
-            </ul>
-            <p>Dacă vom dori să folosim datele pentru alte scopuri, vom cere consimțământul tău în prealabil.</p>
-        </div>
+            <h2>CUM COLECTĂM ACESTE INFORMAȚII</h2>
+            <div class="section">
+                <p>Datele sunt colectate în următoarele situații:</p>
+                <ol>
+                    <li><strong>Deschiderea unui cont nou</strong> – Nu aplicabil;</li>
+                    <li><strong>Interacțiunea cu site-ul</strong> – Cookie-uri (ex: Google Analytics), alte tehnologii de urmărire în conformitate cu Politica de Cookie-uri;</li>
+                    <li><strong>Abonarea la newsletter / comunicări comerciale</strong> – Nu aplicabil;</li>
+                    <li><strong>Contact direct prin formulare / email</strong> – Se colectează informațiile furnizate voluntar (nume, email etc.);</li>
+                    <li><strong>Plăți online</strong> – Nu aplicabil; plățile, dacă vor exista în viitor, se vor realiza prin procesatori securizați (ex: PayPal, Stripe, MobilPay), fără a stoca date de card.</li>
+                </ol>
+            </div>
 
-        <h2>CU CINE PARTAJĂM DATELE</h2>
-        <div class="section">
-            <p>Nu partajăm datele personale colectate cu terți fără acordul tău, cu excepția următoarelor situații:</p>
-            <ul>
-                <li>Furnizori de analiză web (ex: Google Analytics) – doar pentru analiză statistică;</li>
-                <li>Autorități – dacă suntem obligați legal sau în cazul unor cereri oficiale;</li>
-                <li>În cazul unei fuziuni sau preluări a Serviciului – datele pot fi transferate către noul operator.</li>
-            </ul>
-            <p>Orice terță parte cu care colaborăm este obligată să folosească informațiile doar în scopul convenit și să le păstreze în siguranță pentru perioada necesară.</p>
-        </div>
+            <h2>CUM FOLOSIM INFORMAȚIILE COLECTATE</h2>
+            <div class="section">
+                <p>Folosim informațiile colectate în următoarele scopuri:</p>
+                <ul>
+                    <li>Pentru analiză statistică și îmbunătățirea funcționalității Serviciului;</li>
+                    <li>Pentru colectarea feedback-ului și evaluarea interesului utilizatorilor;</li>
+                    <li>În scopuri de marketing general (fără personalizare individuală);</li>
+                    <li>Pentru răspunsuri la solicitări primite prin email/formular.</li>
+                </ul>
+                <p>Dacă vom dori să folosim datele pentru alte scopuri, vom cere consimțământul tău în prealabil.</p>
+            </div>
 
-        <h2>STOCAREA DATELOR</h2>
-        <div class="section">
-            <p>Păstrăm datele colectate pentru maximum 24 luni, sau atât cât este necesar pentru scopul în care au fost colectate.</p>
-            <p>Putem păstra anumite date mai mult timp, în conformitate cu obligațiile legale (ex: contabilitate, prevenirea fraudelor).</p>
-            <p>Datele anonime și informațiile agregate (care nu pot identifica utilizatorul) pot fi stocate pe termen nedeterminat.</p>
-        </div>
+            <h2>CU CINE PARTAJĂM DATELE</h2>
+            <div class="section">
+                <p>Nu partajăm datele personale colectate cu terți fără acordul tău, cu excepția următoarelor situații:</p>
+                <ul>
+                    <li>Furnizori de analiză web (ex: Google Analytics) – doar pentru analiză statistică;</li>
+                    <li>Autorități – dacă suntem obligați legal sau în cazul unor cereri oficiale;</li>
+                    <li>În cazul unei fuziuni sau preluări a Serviciului – datele pot fi transferate către noul operator.</li>
+                </ul>
+                <p>Orice terță parte cu care colaborăm este obligată să folosească informațiile doar în scopul convenit și să le păstreze în siguranță pentru perioada necesară.</p>
+            </div>
 
-        <h2>DREPTURILE TALE</h2>
-        <div class="section">
-            <p>Conform legislației aplicabile (ex: GDPR), ai următoarele drepturi privind datele tale personale:</p>
-            <ul>
-                <li>Dreptul de acces;</li>
-                <li>Dreptul la rectificare;</li>
-                <li>Dreptul la ștergere („dreptul de a fi uitat”);</li>
-                <li>Dreptul la restricționarea prelucrării;</li>
-                <li>Dreptul la opoziție;</li>
-                <li>Dreptul la portabilitatea datelor;</li>
-            </ul>
-            <p>Poți oricând solicita oprirea folosirii datelor tale pentru marketing sau analiză, prin email sau modificând setările cookie.</p>
-        </div>
+            <h2>STOCAREA DATELOR</h2>
+            <div class="section">
+                <p>Păstrăm datele colectate pentru maximum 24 luni, sau atât cât este necesar pentru scopul în care au fost colectate.</p>
+                <p>Putem păstra anumite date mai mult timp, în conformitate cu obligațiile legale (ex: contabilitate, prevenirea fraudelor).</p>
+                <p>Datele anonime și informațiile agregate (care nu pot identifica utilizatorul) pot fi stocate pe termen nedeterminat.</p>
+            </div>
 
-        <h2>COOKIE-URI ȘI TEHNOLOGII DE URMĂRIRE</h2>
-        <div class="section">
-            <p>Folosim cookie-uri și tehnologii similare pentru a analiza traficul, îmbunătăți experiența de utilizare și adapta conținutul. Detalii suplimentare sunt disponibile în Politica Cookie.</p>
-        </div>
+            <h2>DREPTURILE TALE</h2>
+            <div class="section">
+                <p>Conform legislației aplicabile (ex: GDPR), ai următoarele drepturi privind datele tale personale:</p>
+                <ul>
+                    <li>Dreptul de acces;</li>
+                    <li>Dreptul la rectificare;</li>
+                    <li>Dreptul la ștergere („dreptul de a fi uitat");</li>
+                    <li>Dreptul la restricționarea prelucrării;</li>
+                    <li>Dreptul la opoziție;</li>
+                    <li>Dreptul la portabilitatea datelor;</li>
+                </ul>
+                <p>Poți oricând solicita oprirea folosirii datelor tale pentru marketing sau analiză, prin email sau modificând setările cookie.</p>
+            </div>
 
-        <h2>SECURITATEA DATELOR</h2>
-        <div class="section">
-            <p>Ne angajăm să protejăm datele colectate prin măsuri tehnice și organizatorice adecvate. Cu toate acestea, nu putem garanta securitate absolută, dat fiind riscurile inerente internetului.</p>
-        </div>
+            <h2>COOKIE-URI ȘI TEHNOLOGII DE URMĂRIRE</h2>
+            <div class="section">
+                <p>Folosim cookie-uri și tehnologii similare pentru a analiza traficul, îmbunătăți experiența de utilizare și adapta conținutul. Detalii suplimentare sunt disponibile în Politica Cookie.</p>
+            </div>
 
-        <h2>LINK-URI EXTERNE</h2>
-        <div class="section">
-            <p>Site-ul poate conține link-uri către alte site-uri externe. Această Politică nu se aplică acelor site-uri. Nu suntem responsabili pentru conținutul, politicile sau practicile lor. Recomandăm consultarea Politicilor de confidențialitate proprii ale acelor site-uri.</p>
-        </div>
+            <h2>SECURITATEA DATELOR</h2>
+            <div class="section">
+                <p>Ne angajăm să protejăm datele colectate prin măsuri tehnice și organizatorice adecvate. Cu toate acestea, nu putem garanta securitate absolută, dat fiind riscurile inerente internetului.</p>
+            </div>
 
-        
-    </main>
+            <h2>LINK-URI EXTERNE</h2>
+            <div class="section">
+                <p>Site-ul poate conține link-uri către alte site-uri externe. Această Politică nu se aplică acelor site-uri. Nu suntem responsabili pentru conținutul, politicile sau practicile lor. Recomandăm consultarea Politicilor de confidențialitate proprii ale acestor site-uri.</p>
+            </div>
+        </div>
+    </div>
 
     <footer>
-        <p>Această Politică de confidențialitate a fost redactată în conformitate cu standardele GDPR.</p>
-        <p>© TSK Romania – Toate drepturile rezervate.</p>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>Despre Noi</h3>
+                <p>TSK Romania promovează valorile tradiționale ale karate-ului shotokan și dezvoltarea personală prin arte marțiale.</p>
+            </div>
+            <div class="footer-column">
+                <h3>Link-uri Rapide</h3>
+                <ul class="footer-links">
+                    <li><a href="../acasa/">Acasă</a></li>
+                    <li><a href="../politica-confidentialitate/">Politica de confidențialitate</a></li>
+                    <li><a href="../contact/">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Contact</h3>
+                <ul class="footer-links">
+                    <li><a href="mailto:tsk.ro@gmail.com">tsk.ro@gmail.com</a></li>
+                    <li><a href="tel:+40775360802">+40 775 360 802</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 TSKRO. All Rights Reserved. | Designed with <i class="fas fa-heart"></i> by <a href="mailto:andreistanescux@gmail.com" class="designer-name">Andrei Stănescu</a></p>
+        </div>
     </footer>
 </body>
 </html>
