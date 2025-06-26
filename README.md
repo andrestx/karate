@@ -17,11 +17,13 @@
 ✋ Any unauthorized copying, reuse, or distribution—in part or in full—is STRICTLY PROHIBITED without the author’s express written consent.
 ⚖️ Breaching these terms will result in legal action according to applicable laws.
 
-🛡️ PROPRIETAR: andreistx
-📅 © Anul: 2025
-🔗 © Toate drepturile rezervate.
+### 🛡️ PROPRIETAR: andreistx
 
-💡 Respectă munca altora. Creează, nu copia.
+### 📅 © Anul: 2025
+
+### 🔗 © Toate drepturile rezervate.
+
+### 💡 Respectă munca altora. Creează, nu copia.
 
 
 ___________________________________________________________________
