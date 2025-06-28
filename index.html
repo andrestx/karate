@@ -381,10 +381,18 @@ according to applicable laws.
         
         /* Styles Section */
         .styles {
-            background-color: var(--accent);
+            background: radial-gradient(circle, #e63946, #000000 70%, #ffffff);
+    background-size: 200% 200%;
+    animation: pulseGradient 6s ease infinite;
             padding: 80px 20px;
           border-radius: 25px;
         }
+
+@keyframes pulseGradient {
+    0% { background-position: 0% 0%; }
+    50% { background-position: 100% 100%; }
+    100% { background-position: 0% 0%; }
+}
         
         .styles-container {
             max-width: 1200px;
