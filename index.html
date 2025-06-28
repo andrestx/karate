@@ -381,13 +381,14 @@ according to applicable laws.
         
         /* Styles Section */
         .styles {
-            background: radial-gradient(circle, #e63946, #000000 70%, #ffffff);
+    background: radial-gradient(circle, rgba(230, 57, 70, 0.8), rgba(0, 0, 0, 0.8) 70%, rgba(255, 255, 255, 0.8));
     background-size: 200% 200%;
     animation: pulseGradient 6s ease infinite;
-            backdrop-filter: blur(10px);
-            padding: 80px 20px;
-          border-radius: 25px;
-        }
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px); /* pentru Safari */
+    padding: 80px 20px;
+    border-radius: 25px;
+}
 
 @keyframes pulseGradient {
     0% { background-position: 0% 0%; }
