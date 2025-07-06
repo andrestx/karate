@@ -40,7 +40,7 @@ according to applicable laws.
             --accent: #a8dadc;
             --dark: #457b9d;
         }
-        
+
         * {
             margin: 0;
             padding: 0;
@@ -917,7 +917,7 @@ according to applicable laws.
 
 /* Gallery Section */
 .gallery {
-    background-color: var(--light);
+    background-color: #e0e0e0;
 }
 
 .gallery-container {
@@ -1654,8 +1654,70 @@ EVENIEMNTE
     </section>
 
 
+
+
+<style>
+  /* Container val + bule */
+.wave-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    height: 150px;
+  background-color: #e0e0e0;
+
+}
+
+.wave-container svg {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 150px;
+	line-height: 0;
+}
+
+
+
+@keyframes float {
+    0% { transform: translateY(0) scale(1); }
+    100% { transform: translateY(-15px) scale(1.1); }
+}
+
+#gallery {
+  background-color: #e0e0e0;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  position: relative;
+  z-index: 1;
+padding: 2rem 0; /* sau ce padding vrei */
+}
+
+.wave-container svg {
+    display: block;
+    line-height: 0;
+}
+.gallery {
+    margin-top: 0;
+    padding-top: 0;
+}
+.section-title h2 {
+    margin-top: 0;
+}
+
+
+
+</style>
+
+
+
+
+<!-- Wave Transition -->
+<div class="wave-container" style="margin-bottom: -0.2cm;">
+ <svg id="wave" style="transform:rotate(0deg); transition: 0.3s" viewBox="0 0 1440 150" version="1.1" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="sw-gradient-0" x1="0" x2="0" y1="1" y2="0"><stop stop-color="rgba(224, 224, 224, 1)" offset="0%"></stop><stop stop-color="rgba(224, 224, 224, 1)" offset="100%"></stop></linearGradient></defs><path style="transform:translate(0, 0px); opacity:1" fill="url(#sw-gradient-0)" d="M0,135L30,117.5C60,100,120,65,180,57.5C240,50,300,70,360,85C420,100,480,110,540,105C600,100,660,80,720,65C780,50,840,40,900,52.5C960,65,1020,100,1080,115C1140,130,1200,125,1260,110C1320,95,1380,70,1440,72.5C1500,75,1560,105,1620,102.5C1680,100,1740,65,1800,65C1860,65,1920,100,1980,112.5C2040,125,2100,115,2160,115C2220,115,2280,125,2340,110C2400,95,2460,55,2520,40C2580,25,2640,35,2700,47.5C2760,60,2820,75,2880,77.5C2940,80,3000,70,3060,60C3120,50,3180,40,3240,52.5C3300,65,3360,100,3420,117.5C3480,135,3540,135,3600,127.5C3660,120,3720,105,3780,82.5C3840,60,3900,30,3960,25C4020,20,4080,40,4140,45C4200,50,4260,40,4290,35L4320,30L4320,150L4290,150C4260,150,4200,150,4140,150C4080,150,4020,150,3960,150C3900,150,3840,150,3780,150C3720,150,3660,150,3600,150C3540,150,3480,150,3420,150C3360,150,3300,150,3240,150C3180,150,3120,150,3060,150C3000,150,2940,150,2880,150C2820,150,2760,150,2700,150C2640,150,2580,150,2520,150C2460,150,2400,150,2340,150C2280,150,2220,150,2160,150C2100,150,2040,150,1980,150C1920,150,1860,150,1800,150C1740,150,1680,150,1620,150C1560,150,1500,150,1440,150C1380,150,1320,150,1260,150C1200,150,1140,150,1080,150C1020,150,960,150,900,150C840,150,780,150,720,150C660,150,600,150,540,150C480,150,420,150,360,150C300,150,240,150,180,150C120,150,60,150,30,150L0,150Z"></path></svg>
+</div>
+
 <!-- Gallery Section -->
-<section class="section gallery" id="gallery">
+<div class="gallery">
     <div class="section-title">
         <h2>Galerie Foto</h2>
     </div>
@@ -1704,11 +1766,13 @@ EVENIEMNTE
                 </div>
             </div>
         </div>
+
         <div class="gallery-cta">
             <a href="sportivi/" class="btn">Vezi întreaga galerie</a>
         </div>
+<br><br><br>
     </div>
-</section>
+</div>
 
 
 
