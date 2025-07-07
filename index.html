@@ -1190,7 +1190,7 @@ according to applicable laws.
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: linear-gradient(135deg, #1e1e2f, #2c2c3c);
+  background: radial-gradient(circle at center, #2e2e4d, #1c1c2b);
   color: white;
   display: flex;
   flex-direction: column;
@@ -1200,20 +1200,37 @@ according to applicable laws.
   padding: 2rem;
   z-index: 9999;
   font-family: 'Segoe UI', sans-serif;
+  box-shadow: inset 0 0 60px rgba(0, 0, 0, 0.6);
 ">
-  <h1 style="font-size: 2.5rem; margin-bottom: 1rem;">Site în creare</h1>
-  <p style="font-size: 1.2rem; max-width: 700px; margin-bottom: 2rem;">
+  <h1 style="font-size: 3rem; margin-bottom: 1rem; text-shadow: 0 0 15px #4fc3f7;">
+    Site în creare
+  </h1>
+  <p style="font-size: 1.3rem; max-width: 800px; margin-bottom: 2rem; line-height: 1.6;">
     Momentan, site-ul se află în proces de dezvoltare.<br>
     Vă sugerăm să reveniți mai târziu.<br><br>
     Toate informațiile, fotografiile și codul sunt protejate sub licența <strong>All Rights Reserved</strong>.
   </p>
-  <p style="font-size: 1rem;">
+  <p style="font-size: 1rem; margin-bottom: 2rem;">
     Site creat și dezvoltat de <strong>Andrei Stănescu</strong><br>
     <a href="https://www.andreist.great-site.net/" target="_blank" style="color: #4fc3f7; text-decoration: none;">
       https://www.andreist.great-site.net/
     </a>
   </p>
+  <button onclick="document.getElementById('site-maintenance').remove();" style="
+    padding: 0.75rem 1.5rem;
+    background-color: #4fc3f7;
+    color: #000;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    box-shadow: 0 0 12px #4fc3f7;
+    transition: all 0.3s ease;
+  ">
+    Vreau să văd site-ul actual!
+  </button>
 </div>
+
 
 
 	
