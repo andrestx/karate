@@ -31,7 +31,7 @@ according to applicable laws.
   gtag('config', 'G-81JP2C344J');
 </script>
     
-    <script type="text/javascript" charset="UTF-8" src="//cdn.cookie-script.com/s/db490c81bc7de29f20a496fc188bbf3c.js"></script>
+<script type="text/javascript" charset="UTF-8" src="//cdn.cookie-script.com/s/db490c81bc7de29f20a496fc188bbf3c.js"></script> 
     <style>
         :root {
             --primary: #e63946;
@@ -40,7 +40,7 @@ according to applicable laws.
             --accent: #a8dadc;
             --dark: #457b9d;
         }
-        
+
         * {
             margin: 0;
             padding: 0;
@@ -72,7 +72,7 @@ according to applicable laws.
         }
         
         /* Header */
-        header {
+          header {
             background: linear-gradient(135deg, var(--secondary), var(--dark));
             color: white;
             padding: 1rem;
@@ -80,7 +80,7 @@ according to applicable laws.
             overflow: hidden;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
-        
+
         .header-content {
             display: flex;
             justify-content: space-between;
@@ -90,6 +90,8 @@ according to applicable laws.
             position: relative;
             z-index: 2;
         }
+
+        
         
         .logo {
             display: flex;
@@ -377,12 +379,31 @@ according to applicable laws.
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         }
         
-        /* Styles Section */
+        /* Styles Section -----------------------------------------------------------------------------------------------------------------*/
         .styles {
-            background-color: var(--accent);
-            padding: 80px 20px;
-          border-radius: 25px;
-        }
+  background: radial-gradient(
+  circle,
+  rgba(255, 255, 255, 1),
+  rgba(221, 221, 221, 0.8) 60%,
+  rgba(203, 203, 203, 0.6),
+  rgba(166, 166, 166, 0.4),
+  rgba(129, 129, 129, 0.3)
+);
+
+
+    background-size: 200% 200%;
+    animation: pulseGradient 6s ease infinite;
+    backdrop-filter: blur(50px);
+    -webkit-backdrop-filter: blur(30px); /* pentru Safari */
+    padding: 80px 20px;
+    border-radius: 25px;
+}
+
+@keyframes pulseGradient {
+    0% { background-position: 0% 0%; }
+    50% { background-position: 100% 100%; }
+    100% { background-position: 0% 0%; }
+}
         
         .styles-container {
             max-width: 1200px;
@@ -896,7 +917,7 @@ according to applicable laws.
 
 /* Gallery Section */
 .gallery {
-    background-color: var(--light);
+    background-color: #e0e0e0;
 }
 
 .gallery-container {
@@ -1162,6 +1183,57 @@ according to applicable laws.
     </style>
 </head>
 <body>
+
+<div id="site-maintenance" style="
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: radial-gradient(circle at center, #2e2e4d, #1c1c2b);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  z-index: 9999;
+  font-family: 'Segoe UI', sans-serif;
+  box-shadow: inset 0 0 60px rgba(0, 0, 0, 0.6);
+">
+  <h1 style="font-size: 3rem; margin-bottom: 1rem; text-shadow: 0 0 15px #4fc3f7;">
+    Site în creare
+  </h1>
+  <p style="font-size: 1.3rem; max-width: 800px; margin-bottom: 2rem; line-height: 1.6;">
+    Momentan, site-ul se află în proces de dezvoltare.<br>
+    Vă sugerăm să reveniți mai târziu.<br><br>
+    Toate informațiile, fotografiile și codul sunt protejate sub licența <strong>All Rights Reserved</strong>.
+  </p>
+  <p style="font-size: 1rem; margin-bottom: 2rem;">
+    Site creat și dezvoltat de <strong>Andrei Stănescu</strong><br>
+    <a href="https://www.andreist.great-site.net/" target="_blank" style="color: #4fc3f7; text-decoration: none;">
+      https://www.andreist.great-site.net/
+    </a>
+  </p>
+  <button onclick="document.getElementById('site-maintenance').remove();" style="
+    padding: 0.75rem 1.5rem;
+    background-color: #4fc3f7;
+    color: #000;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    box-shadow: 0 0 12px #4fc3f7;
+    transition: all 0.3s ease;
+  ">
+    Vreau să văd site-ul actual!
+  </button>
+</div>
+
+
+
+	
     <!-- Header -->
     <header>
         <div class="header-content">
@@ -1205,7 +1277,7 @@ according to applicable laws.
         Vă așteptăm cu drag să veniți alături de noi, să construim caractere puternice și stabile...
         Karate nu este o luptă, este un mod de viață în care nu ai voie să spui: nu am chef, nu pot, nu vreau.
          Întotdeauna trebuie să-ți dorești să fii mai bun mâine decât azi, decât ieri.... totdeauna mai bun...</p>
-       <a href="../contact/" class="btn">Înscrie-te acum</a>
+        <a href="../contact/" class="btn">Înscrie-te acum</a>
         <a href="../desprenoi/" class="btn btn-outline">Află mai multe</a>
     </div>
      <div class="hero-controls">
@@ -1220,12 +1292,52 @@ according to applicable laws.
         
     </section>
   
-  
+  <style>
+.dojo-kun-title-container {
+    position: relative;
+    display: inline-block;
+    padding: 20px 30px;
+    border-radius: 15px; /* Rotunjire colțuri */
+    background: rgba(255, 255, 255, 0.5); /* Alb cu 50% opacitate */
+    backdrop-filter: blur(5px); /* Efect de "frosted glass" (opțional) */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Umbră subtilă */
+    text-align: center;
+    max-width: 80%;
+    margin: 0 auto;
+}
+
+.dojo-kun-title-container::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, rgba(255, 255, 255, 0.8), rgba(230, 57, 70, 0.2));
+    z-index: -1;
+    border-radius: 17px; /* Rotunjire puțin mai mare decât containerul */
+    filter: blur(8px); /* Difuzare pentru efect de glow */
+    opacity: 0.7;
+    animation: glowPulse 3s ease infinite alternate;
+}
+
+@keyframes glowPulse {
+    0% { opacity: 0.5; }
+    100% { opacity: 0.9; }
+}
+
+.dojo-kun-title-container {
+    display: block;
+    margin: 0 auto 50px;
+    text-align: center;
+}
+
+</style>
   
   <!-- Styles Section - Varianta Îmbunătățită -->
 <section class="section styles" id="styles">
     <div class="styles-container">
-        <div class="section-title">
+        <div class="dojo-kun-title-container" style="margin-bottom: 50px;">
             <h2>Dojo Kun</h2>
             <p style="max-width: 800px; margin: 20px auto 0; font-size: 1.1rem; line-height: 1.6;">
                 Karate-ul nu este doar o colecție de tehnici, ci un sistem complet de dezvoltare personală
@@ -1437,11 +1549,11 @@ document.querySelectorAll('.pdf-btn').forEach(button => {
         
         // Înlocuiește cu URL-urile reale ale PDF-urilor tale
         const pdfPaths = {
-            'perfection.pdf': '../documente/Perfecționarea%20caracterului.pdf',
-            'respect.pdf': '../documente/respectul%20si%20modestia.pdf',
-            'zidezi.pdf': '../documente/karate%20in%20viata%20de%20zi%20cu%20zi.pdf',
-            'devotament.pdf': '../documente/devotament.pdf',
-            'peace.pdf': '../documente/sinceritate.pdf'
+            'perfection.pdf': 'documente/Perfecționarea%20caracterului.pdf',
+            'respect.pdf': 'documente/respectul%20si%20modestia.pdf',
+            'zidezi.pdf': 'documente/karate%20in%20viata%20de%20zi%20cu%20zi.pdf',
+            'devotament.pdf': 'documente/devotament.pdf',
+            'peace.pdf': 'documente/sinceritate.pdf'
         };
         
         if(pdfPaths[pdfFile]) {
@@ -1593,8 +1705,70 @@ EVENIEMNTE
     </section>
 
 
+
+
+<style>
+  /* Container val + bule */
+.wave-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    height: 150px;
+  background-color: #e0e0e0;
+
+}
+
+.wave-container svg {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 150px;
+	line-height: 0;
+}
+
+
+
+@keyframes float {
+    0% { transform: translateY(0) scale(1); }
+    100% { transform: translateY(-15px) scale(1.1); }
+}
+
+#gallery {
+  background-color: #e0e0e0;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  position: relative;
+  z-index: 1;
+padding: 2rem 0; /* sau ce padding vrei */
+}
+
+.wave-container svg {
+    display: block;
+    line-height: 0;
+}
+.gallery {
+    margin-top: 0;
+    padding-top: 0;
+}
+.section-title h2 {
+    margin-top: 0;
+}
+
+
+
+</style>
+
+
+
+
+<!-- Wave Transition -->
+<div class="wave-container" style="margin-bottom: -0.2cm;">
+ <svg id="wave" style="transform:rotate(0deg); transition: 0.3s" viewBox="0 0 1440 150" version="1.1" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="sw-gradient-0" x1="0" x2="0" y1="1" y2="0"><stop stop-color="rgba(224, 224, 224, 1)" offset="0%"></stop><stop stop-color="rgba(224, 224, 224, 1)" offset="100%"></stop></linearGradient></defs><path style="transform:translate(0, 0px); opacity:1" fill="url(#sw-gradient-0)" d="M0,135L30,117.5C60,100,120,65,180,57.5C240,50,300,70,360,85C420,100,480,110,540,105C600,100,660,80,720,65C780,50,840,40,900,52.5C960,65,1020,100,1080,115C1140,130,1200,125,1260,110C1320,95,1380,70,1440,72.5C1500,75,1560,105,1620,102.5C1680,100,1740,65,1800,65C1860,65,1920,100,1980,112.5C2040,125,2100,115,2160,115C2220,115,2280,125,2340,110C2400,95,2460,55,2520,40C2580,25,2640,35,2700,47.5C2760,60,2820,75,2880,77.5C2940,80,3000,70,3060,60C3120,50,3180,40,3240,52.5C3300,65,3360,100,3420,117.5C3480,135,3540,135,3600,127.5C3660,120,3720,105,3780,82.5C3840,60,3900,30,3960,25C4020,20,4080,40,4140,45C4200,50,4260,40,4290,35L4320,30L4320,150L4290,150C4260,150,4200,150,4140,150C4080,150,4020,150,3960,150C3900,150,3840,150,3780,150C3720,150,3660,150,3600,150C3540,150,3480,150,3420,150C3360,150,3300,150,3240,150C3180,150,3120,150,3060,150C3000,150,2940,150,2880,150C2820,150,2760,150,2700,150C2640,150,2580,150,2520,150C2460,150,2400,150,2340,150C2280,150,2220,150,2160,150C2100,150,2040,150,1980,150C1920,150,1860,150,1800,150C1740,150,1680,150,1620,150C1560,150,1500,150,1440,150C1380,150,1320,150,1260,150C1200,150,1140,150,1080,150C1020,150,960,150,900,150C840,150,780,150,720,150C660,150,600,150,540,150C480,150,420,150,360,150C300,150,240,150,180,150C120,150,60,150,30,150L0,150Z"></path></svg>
+</div>
+
 <!-- Gallery Section -->
-<section class="section gallery" id="gallery">
+<div class="gallery">
     <div class="section-title">
         <h2>Galerie Foto</h2>
     </div>
@@ -1643,11 +1817,13 @@ EVENIEMNTE
                 </div>
             </div>
         </div>
+
         <div class="gallery-cta">
             <a href="sportivi/" class="btn">Vezi întreaga galerie</a>
         </div>
+<br><br><br>
     </div>
-</section>
+</div>
 
 
 
