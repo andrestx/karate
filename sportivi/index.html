@@ -30,6 +30,97 @@ according to applicable laws.
 
   gtag('config', 'G-81JP2C344J');
 </script>
+
+
+
+
+
+<!-- Notificare Site în Construcție + Login Secret -->
+<div id="construction-notice" style="position:fixed; top:0; left:0; width:100%; height:100vh; background:linear-gradient(145deg, #e0eafc, #cfdef3); display:flex; align-items:center; justify-content:center; flex-direction:column; z-index:9999; font-family:'Segoe UI', sans-serif; animation:fadeInPage 1s ease;">
+  <h1 style="font-size:3em; color:#2c3e50; margin-bottom:10px; animation:slideDown 0.8s ease forwards;">🔧 Site în construcție</h1>
+  <p style="font-size:1.3em; color:#34495e; text-align:center; max-width:500px; opacity:0; animation:fadeInText 1s 0.6s forwards;">
+    Ne pregătim ceva special pentru tine!<br>Lucrăm din greu pentru a finaliza noul nostru site web.
+  </p>
+
+  <!-- Buton invizibil în colț dreapta jos -->
+  <button id="secret-button" style="position:absolute; bottom:10px; right:10px; opacity:0; width:40px; height:40px; cursor:pointer; border:none; background:none;"></button>
+
+  <!-- Panou Login ascuns -->
+  <div id="login-panel" style="display:none; margin-top:30px; background:#ffffff; padding:25px 30px; box-shadow:0 8px 25px rgba(0,0,0,0.15); border-radius:12px; animation:fadeInPanel 0.4s ease;">
+    <h2 style="margin-bottom:20px; color:#2c3e50;">🔐 Autentificare</h2>
+    <input type="text" id="username" placeholder="Utilizator" style="padding:10px 12px; margin-bottom:12px; width:100%; border:1px solid #ccc; border-radius:6px;"><br>
+    <input type="password" id="password" placeholder="Parolă" style="padding:10px 12px; margin-bottom:16px; width:100%; border:1px solid #ccc; border-radius:6px;"><br>
+    <button onclick="verifyLogin()" style="padding:10px 24px; background:#3498db; color:#fff; border:none; border-radius:6px; cursor:pointer; transition:background 0.3s;">
+      Login
+    </button>
+  </div>
+</div>
+
+<style>
+  @keyframes fadeIn {
+    from {opacity: 0; transform: translateY(-10px);}
+    to {opacity: 1; transform: translateY(0);}
+  }
+
+  @keyframes fadeInPanel {
+    from {opacity: 0; transform: scale(0.95);}
+    to {opacity: 1; transform: scale(1);}
+  }
+
+  @keyframes fadeInPage {
+    from {opacity: 0;}
+    to {opacity: 1;}
+  }
+
+  @keyframes slideDown {
+    from {transform: translateY(-20px); opacity: 0;}
+    to {transform: translateY(0); opacity: 1;}
+  }
+
+  @keyframes fadeInText {
+    to {opacity: 1;}
+  }
+
+  #login-panel button:hover {
+    background: #2980b9;
+  }
+
+  input:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.3);
+  }
+</style>
+
+<script>
+  const secretBtn = document.getElementById('secret-button');
+  const loginPanel = document.getElementById('login-panel');
+  const notice = document.getElementById('construction-notice');
+
+  secretBtn.addEventListener('click', () => {
+    loginPanel.style.display = 'block';
+    loginPanel.style.animation = 'fadeInPanel 0.4s ease';
+  });
+
+  function verifyLogin() {
+    const user = document.getElementById('username').value;
+    const pass = document.getElementById('password').value;
+
+    if (user === 'andrei' && pass === 'andrei') {
+      notice.style.animation = 'fadeOutPage 0.5s ease forwards';
+      setTimeout(() => {
+        notice.style.display = 'none';
+      }, 500);
+    } else {
+      alert('Date incorecte!');
+    }
+  }
+</script>
+
+
+    
+
+    
     <style>
         :root {
             --primary: #e63946;
