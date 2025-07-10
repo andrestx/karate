@@ -30,7 +30,98 @@ according to applicable laws.
 
   gtag('config', 'G-81JP2C344J');
 </script>
-    
+
+
+
+<!-- Notificare Site în Construcție + Login Secret -->
+<div id="construction-notice" style="position:fixed; top:0; left:0; width:100%; height:100vh; background:linear-gradient(145deg, #e0eafc, #cfdef3); display:flex; align-items:center; justify-content:center; flex-direction:column; z-index:9999; font-family:'Segoe UI', sans-serif; animation:fadeInPage 1s ease;">
+  <h1 style="font-size:3em; color:#2c3e50; margin-bottom:10px; animation:slideDown 0.8s ease forwards;">🔧 Site în construcție</h1>
+  <p style="font-size:1.3em; color:#34495e; text-align:center; max-width:500px; opacity:0; animation:fadeInText 1s 0.6s forwards;">
+    Ne pregătim ceva special pentru tine!<br>Lucrăm din greu pentru a finaliza noul nostru site web.
+  </p>
+
+  <!-- Buton invizibil în colț dreapta jos -->
+  <button id="secret-button" style="position:absolute; bottom:10px; right:10px; opacity:0; width:40px; height:40px; cursor:pointer; border:none; background:none;"></button>
+
+  <!-- Panou Login ascuns -->
+  <div id="login-panel" style="display:none; margin-top:30px; background:#ffffff; padding:25px 30px; box-shadow:0 8px 25px rgba(0,0,0,0.15); border-radius:12px; animation:fadeInPanel 0.4s ease;">
+    <h2 style="margin-bottom:20px; color:#2c3e50;">🔐 Autentificare</h2>
+    <input type="text" id="username" placeholder="Utilizator" style="padding:10px 12px; margin-bottom:12px; width:100%; border:1px solid #ccc; border-radius:6px;"><br>
+    <input type="password" id="password" placeholder="Parolă" style="padding:10px 12px; margin-bottom:16px; width:100%; border:1px solid #ccc; border-radius:6px;"><br>
+    <button onclick="verifyLogin()" style="padding:10px 24px; background:#3498db; color:#fff; border:none; border-radius:6px; cursor:pointer; transition:background 0.3s;">
+      Login
+    </button>
+  </div>
+</div>
+
+<style>
+  @keyframes fadeIn {
+    from {opacity: 0; transform: translateY(-10px);}
+    to {opacity: 1; transform: translateY(0);}
+  }
+
+  @keyframes fadeInPanel {
+    from {opacity: 0; transform: scale(0.95);}
+    to {opacity: 1; transform: scale(1);}
+  }
+
+  @keyframes fadeInPage {
+    from {opacity: 0;}
+    to {opacity: 1;}
+  }
+
+  @keyframes slideDown {
+    from {transform: translateY(-20px); opacity: 0;}
+    to {transform: translateY(0); opacity: 1;}
+  }
+
+  @keyframes fadeInText {
+    to {opacity: 1;}
+  }
+
+  #login-panel button:hover {
+    background: #2980b9;
+  }
+
+  input:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.3);
+  }
+</style>
+
+<script>
+  const secretBtn = document.getElementById('secret-button');
+  const loginPanel = document.getElementById('login-panel');
+  const notice = document.getElementById('construction-notice');
+
+  secretBtn.addEventListener('click', () => {
+    loginPanel.style.display = 'block';
+    loginPanel.style.animation = 'fadeInPanel 0.4s ease';
+  });
+
+  function verifyLogin() {
+    const user = document.getElementById('username').value;
+    const pass = document.getElementById('password').value;
+
+    if (user === 'andrei' && pass === 'andrei') {
+      notice.style.animation = 'fadeOutPage 0.5s ease forwards';
+      setTimeout(() => {
+        notice.style.display = 'none';
+      }, 500);
+    } else {
+      alert('Date incorecte!');
+    }
+  }
+</script>
+
+
+
+	
+
+
+
+	
 <script type="text/javascript" charset="UTF-8" src="//cdn.cookie-script.com/s/db490c81bc7de29f20a496fc188bbf3c.js"></script> 
     <style>
         :root {
@@ -1184,54 +1275,6 @@ according to applicable laws.
 </head>
 <body>
 
-<div id="site-maintenance" style="
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: radial-gradient(circle at center, #2e2e4d, #1c1c2b);
-  color: white;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 2rem;
-  z-index: 9999;
-  font-family: 'Segoe UI', sans-serif;
-  box-shadow: inset 0 0 60px rgba(0, 0, 0, 0.6);
-">
-  <h1 style="font-size: 3rem; margin-bottom: 1rem; text-shadow: 0 0 15px #4fc3f7;">
-    Site în creare
-  </h1>
-  <p style="font-size: 1.3rem; max-width: 800px; margin-bottom: 2rem; line-height: 1.6;">
-    Momentan, site-ul se află în proces de dezvoltare.<br>
-    Vă sugerăm să reveniți mai târziu.<br><br>
-    Toate informațiile, fotografiile și codul sunt protejate sub licența <strong>All Rights Reserved</strong>.
-  </p>
-  <p style="font-size: 1rem; margin-bottom: 2rem;">
-    Site creat și dezvoltat de <strong>Andrei Stănescu</strong><br>
-    <a href="https://www.andreist.great-site.net/" target="_blank" style="color: #4fc3f7; text-decoration: none;">
-      https://www.andreist.great-site.net/
-    </a>
-  </p>
-  <button onclick="document.getElementById('site-maintenance').remove();" style="
-    padding: 0.75rem 1.5rem;
-    background-color: #4fc3f7;
-    color: #000;
-    border: none;
-    border-radius: 8px;
-    font-size: 1rem;
-    cursor: pointer;
-    box-shadow: 0 0 12px #4fc3f7;
-    transition: all 0.3s ease;
-  ">
-    Vreau să văd site-ul actual!
-  </button>
-</div>
-
-
 
 	
     <!-- Header -->
@@ -1266,10 +1309,11 @@ according to applicable laws.
     <!-- Hero Section -->
 <section class="hero" id="home">
     <div class="hero-slides">
-        <div class="hero-slide active" style="background-image: url('../images/20220723_202537.avif')"></div>
-        <div class="hero-slide" style="background-image: url('../images/echipa%20.avif')"></div>
-        <div class="hero-slide" style="background-image: url('../images/IMG_20200115_190230.avif')"></div>
-        <div class="hero-slide" style="background-image: url('../images/20240327_191339.avif')"></div>
+        <div class="hero-slide active" style="background-image: url('../images/16.jpg')"></div>
+        <div class="hero-slide" style="background-image: url('../images/17.jpg')"></div>
+        <div class="hero-slide" style="background-image: url('../images/14.jpg')"></div>
+        <div class="hero-slide" style="background-image: url('../images/15.jpg')"></div>
+	<div class="hero-slide" style="background-image: url('../images/11.jpg')"></div>
     </div>
     <div class="hero-content">
         <h2>Traditional Karate Shotokan RO</h2>
@@ -1277,8 +1321,8 @@ according to applicable laws.
         Vă așteptăm cu drag să veniți alături de noi, să construim caractere puternice și stabile...
         Karate nu este o luptă, este un mod de viață în care nu ai voie să spui: nu am chef, nu pot, nu vreau.
          Întotdeauna trebuie să-ți dorești să fii mai bun mâine decât azi, decât ieri.... totdeauna mai bun...</p>
-        <a href="../contact/" class="btn">Înscrie-te acum</a>
-        <a href="../desprenoi/" class="btn btn-outline">Află mai multe</a>
+    <!--    <a href="../contact/" class="btn">Înscrie-te acum</a>
+        <a href="../desprenoi/" class="btn btn-outline">Află mai multe</a> -->
     </div>
      <div class="hero-controls">
         <!-- <button class="hero-prev"><i class="fas fa-chevron-left"></i></button>
@@ -1287,10 +1331,7 @@ according to applicable laws.
     <div class="hero-indicators">
 </section>
 
-    <!-- About Section -->
-    <section class="section" id="about">
-        
-    </section>
+<br> <br> <br>
   
   <style>
 .dojo-kun-title-container {
@@ -1349,10 +1390,10 @@ according to applicable laws.
         <img src="../images/funakd.avif" alt="Imaginea este indisponibila. Cod eroare [001]">
     </div>
     <div class="dojo-kun-image">
-        <img src="../images/images1.jpg" alt="Imaginea este indisponibila.. Cod eroare [001]">
+        <img src="../images/DOJO%20KUN%20SHOTO%20FINAL.avif" alt="Imaginea este indisponibila.. Cod eroare [001]">
     </div>
     <div class="dojo-kun-image">
-        <img src="../images/DOJO%20KUN%20SHOTO%20FINAL.avif" alt="Imaginea este indisponibila. Cod eroare [001]">
+        <img src="../images/OIP.jpg" alt="Imaginea este indisponibila. Cod eroare [001]">
     </div>
 </div>
         <div class="philosophy-grid">
@@ -1362,10 +1403,7 @@ according to applicable laws.
                     <i class="fas fa-mountain"></i>
                 </div>
                 <h3>Perfecționarea caracterului</h3>
-                <div class="card-content">
-                    <p>Perfecțiunea nu este un scop final, ci o căutare continuă de a deveni mai buni. „Perfecțiunea caracterului” în karate înseamnă să fim în fiecare zi pregătiți să creștem, să ne dezvoltăm și să acționăm cu conștiință și dedicare.</p>
-                    <p>În dojo, practicanții repetă Dojo Kun — un set de principii care, deși adesea rostit mecanic, pătrund în subconștient și modelează atitudinea, dăruirea și caracterul.</p>
-                </div>
+               
               
                <div class="principle-card">
             <div class="principle-icon">
@@ -1384,10 +1422,7 @@ according to applicable laws.
                     <i class="fas fa-hands-helping"></i>
                 </div>
                 <h3>Respectul și modestia</h3>
-                <div class="card-content">
-                    <p>Karate începe cu politețe, iar salutul prin înclinare — Rei — simbolizează respectul pentru arta, maestrul, adversarul și pe noi înșine. Este o formă non-verbală de exprimare a modestiei, angajamentului și dorinței de pace.</p>
-                    <p>Prin salut, practicantul își asumă responsabilitatea pentru acțiunile sale și arată că lupta este ultima soluție, folosită doar pentru autoapărare.</p>
-                </div>
+                
               <div class="principle-card">
             <div class="principle-icon">
                  </div>
@@ -1407,10 +1442,7 @@ according to applicable laws.
                     <i class="fas fa-heartbeat"></i>
                 </div>
                 <h3>Karate în viața de zi cu zi</h3>
-                <div class="card-content">
-                    <p>Modestia și respectul în karate se reflectă în comportamentul de zi cu zi, iar repetarea constantă a acestor principii formează un caracter puternic și autentic.</p>
-                    <p>Calea karate-ului nu este doar despre luptă, ci despre a deveni o persoană mai bună — cu răbdare, încredere și angajament față de propria creștere.</p>
-                </div>
+                
               <div class="principle-card">
             <div class="principle-icon">
                  </div>
@@ -1429,10 +1461,7 @@ according to applicable laws.
                     <i class="fas fa-hands"></i>
                 </div>
                 <h3>Devotamentul și credința</h3>
-                <div class="card-content">
-                    <p>Rei, adică salutul prin înclinare, este primul și esențialul principiu al karate-ului, care exprimă respect, modestie și angajamentul practicantului față de arta sa. Prin acest gest, se onorează maestrul, adversarul, și întreaga tradiție a dojo-ului.</p>
-                    <p>Există două forme de înclinare: Ritsu-rei (în picioare) și Seiza-rei (așezat pe genunchi), ambele trebuie făcute cu sinceritate și modestie. </p>
-                </div>
+               
               <div class="principle-card">
             <div class="principle-icon">
                  </div>
@@ -1449,10 +1478,10 @@ according to applicable laws.
                     <i class="fas fa-hands-clapping"></i>
                 </div>
                 <h3>Sinceritatea și dăruirea</h3>
-                <div class="card-content">
+              <!--  <div class="card-content">
                     <p>Spiritul rezistenței la efort este esențial și se dezvoltă prin practică constantă, chiar dacă rezultatele nu se văd imediat.</p>
                     <p>În karate, antrenorul trebuie să fie și practician activ al tehnicilor pe care le predă, iar progresul este o muncă permanentă, care nu se oprește niciodată, indiferent de nivelul atins. Străduința continuă și dedicarea în toate aspectele vieții sunt necesare pentru a avansa și a nu cădea înapoi.</p>
-                </div>
+                </div> -->
               <div class="principle-card">
             <div class="principle-icon">
                  </div>
@@ -1775,46 +1804,28 @@ padding: 2rem 0; /* sau ce padding vrei */
     <div class="gallery-container">
         <div class="gallery-grid">
             <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1547347298-4074fc3086f0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Antrenament karate">
-                <div class="gallery-overlay">
-                    <h3>Antrenament intensiv</h3>
-                    <p>Echipa națională în pregătire pentru campionate</p>
-                </div>
+                <img src="../images/18.jpg">
+              
             </div>
             <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1584735422186-97a4e765df98?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Campionat karate">
-                <div class="gallery-overlay">
-                    <h3>Campionatul Național</h3>
-                    <p>Finala categoriei seniori 2023</p>
-                </div>
+                <img src="../images/19.jpg">
+                
             </div>
             <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1608889825103-eb5c0e8dc9d1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Kata demonstratie">
-                <div class="gallery-overlay">
-                    <h3>Demonstrație Kata</h3>
-                    <p>Maestrul Popescu la seminarul anual</p>
-                </div>
+                <img src="../images/20.jpg">
+                
             </div>
             <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1600250395178-40fe752e5187?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1528&q=80" alt="Copii karate">
-                <div class="gallery-overlay">
-                    <h3>Școala de Karate</h3>
-                    <p>Generația viitoare de campioni</p>
-                </div>
+                <img src="../images/22.jpg">
+                
             </div>
             <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1517438322307-e67111335449?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Medalii karate">
-                <div class="gallery-overlay">
-                    <h3>Succese Internaționale</h3>
-                    <p>Medaliile câștigate în 2023</p>
-                </div>
+                <img src="../images/21.jpg">
+               
             </div>
             <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1608889825271-9696287a9a05?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1527&q=80" alt="Kumite competitie">
-                <div class="gallery-overlay">
-                    <h3>Competiție Kumite</h3>
-                    <p>Luptătorii noștri în acțiune</p>
-                </div>
+                <img src="../images/23.jpg">
+               
             </div>
         </div>
 
@@ -1877,8 +1888,38 @@ padding: 2rem 0; /* sau ce padding vrei */
         <div id="formStatus" style="margin-top: 15px;"></div>
     </form>
 </div>
-</section>
+</section> -->
+<div class="wave-container" style="margin-bottom: -0.2cm; background: #e0e0e0;">
+ <svg width="100%" height="100%" id="svg" viewBox="0 0 1440 200" xmlns="http://www.w3.org/2000/svg" class="transition duration-300 ease-in-out delay-150">
+  <style>
+    .path-0 {
+      animation: pathAnim-0 4s linear infinite;
+    }
 
+    @keyframes pathAnim-0 {
+      0% {
+        d: path("M 0,200 L 0,75 C 76.15,81.03 152.31,87.06 246,94.5 C 339.69,101.94 450.92,110.8 521,95.5 C 591.08,80.2 620,40.73 700,45 C 780,49.27 911.08,97.26 998,102.5 C 1084.92,107.73 1127.69,70.21 1194,58.5 C 1260.31,46.79 1350.15,60.89 1440,75 L 1440,200 L 0,200 Z");
+      }
+      25% {
+        d: path("M 0,200 L 0,75 C 72.08,87.05 144.16,99.1 211,93 C 277.84,86.9 339.44,62.65 438,66.5 C 536.56,70.35 672.07,102.3 764,102.5 C 855.93,102.7 904.29,71.15 974,55.5 C 1043.71,39.85 1134.77,40.1 1216,46 C 1297.23,51.9 1368.61,63.45 1440,75 L 1440,200 L 0,200 Z");
+      }
+      50% {
+        d: path("M 0,200 L 0,75 C 78.39,57.33 156.78,39.65 241,52.5 C 325.22,65.35 415.25,108.71 506,105.5 C 596.75,102.29 688.2,52.5 752,50 C 815.8,47.5 851.95,92.29 916,106.5 C 980.05,120.71 1072.02,104.35 1164,94 C 1255.98,83.65 1347.99,79.33 1440,75 L 1440,200 L 0,200 Z");
+      }
+      75% {
+        d: path("M 0,200 L 0,75 C 64.21,93.36 128.41,111.72 208,104 C 287.59,96.28 382.56,62.48 470,54 C 557.44,45.52 637.33,62.37 707,60.5 C 776.67,58.63 836.1,38.05 930,48 C 1023.9,57.94 1152.26,98.41 1243,108 C 1333.74,117.59 1386.87,96.29 1440,75 L 1440,200 L 0,200 Z");
+      }
+      100% {
+        d: path("M 0,200 L 0,75 C 76.15,81.03 152.31,87.06 246,94.5 C 339.69,101.94 450.92,110.8 521,95.5 C 591.08,80.2 620,40.73 700,45 C 780,49.27 911.08,97.26 998,102.5 C 1084.92,107.73 1127.69,70.21 1194,58.5 C 1260.31,46.79 1350.15,60.89 1440,75 L 1440,200 L 0,200 Z");
+      }
+    }
+  </style>
+  <path d="M 0,200 L 0,75 C 76.15,81.03 152.31,87.06 246,94.5 C 339.69,101.94 450.92,110.8 521,95.5 C 591.08,80.2 620,40.73 700,45 C 780,49.27 911.08,97.26 998,102.5 C 1084.92,107.73 1127.69,70.21 1194,58.5 C 1260.31,46.79 1350.15,60.89 1440,75 L 1440,200 L 0,200 Z"
+        stroke="none" stroke-width="0" fill="#1d3557" fill-opacity="1"
+        class="transition-all duration-300 ease-in-out delay-150 path-0">
+  </path>
+</svg>
+</div>
     <!-- Footer -->
     <footer>
         <div class="footer-content">
