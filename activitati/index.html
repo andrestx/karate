@@ -2466,10 +2466,56 @@ document.addEventListener('DOMContentLoaded', function() {
 </section>
   
   
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const carousel = document.querySelector('.gallery-carousel');
+    const track = document.querySelector('.carousel-track');
+    const items = document.querySelectorAll('.carousel-item');
+    
+    // Calculează numărul de rânduri
+    const itemsPerRow = 3; // 3 coloane
+    const rowCount = Math.ceil(items.length / itemsPerRow);
+    
+    // Setează înălțimea caruselului în funcție de numărul de rânduri
+    const itemHeight = items[0].offsetHeight;
+    const carouselHeight = rowCount * itemHeight;
+    carousel.style.height = `${carouselHeight}px`;
+    
+    // Clonează toate imaginile pentru efect infinit
+    items.forEach(item => {
+        track.appendChild(item.cloneNode(true));
+    });
+    
+    // Animație personalizată
+    let scrollPos = 0;
+    const scrollSpeed = 0.5; // px per frame (adjust for speed)
+    
+    function animate() {
+        scrollPos += scrollSpeed;
+        
+        // Reset când ajunge la jumătate
+        if (scrollPos >= carouselHeight) {
+            scrollPos = 0;
+        }
+        
+        track.style.transform = `translateY(-${scrollPos}px)`;
+        requestAnimationFrame(animate);
+    }
+    
+    // Pornire animație
+    animate();
+    
+    // Pause on hover
+    carousel.addEventListener('mouseenter', () => {
+        scrollSpeed = 0;
+    });
+    
+    carousel.addEventListener('mouseleave', () => {
+        scrollSpeed = 0.5;
+    });
+});
   
-  
-  
-  
+</script>
   
   
 <style>
