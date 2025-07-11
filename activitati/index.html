@@ -1823,51 +1823,6 @@ document.querySelectorAll('.pdf-btn').forEach(button => {
 }
 </style>
 
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    // Intersection Observer for scroll animations
-    const observerOptions = {
-        threshold: 0.1
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('animated');
-            }
-        });
-    }, observerOptions);
-
-    // Observe all elements with animation classes
-    document.querySelectorAll('.slide-in-left, .slide-in-right, .fade-in').forEach(el => {
-        observer.observe(el);
-    });
-
-    // Add hover effect to program items
-    const programItems = document.querySelectorAll('.program-item');
-    programItems.forEach(item => {
-        item.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-5px)';
-            this.style.boxShadow = '0 8px 15px rgba(231, 76, 60, 0.4)';
-        });
-        
-        item.addEventListener('mouseleave', function() {
-            this.style.transform = '';
-            this.style.boxShadow = '0 4px 8px rgba(231, 76, 60, 0.3)';
-        });
-    });
-
-    // Image box click effect
-    const imageBoxes = document.querySelectorAll('.image-box');
-    imageBoxes.forEach(box => {
-        box.addEventListener('click', function() {
-            // Here you can add functionality to show the image
-            alert('Aici poți adăuga funcționalitate pentru afișarea imaginii: ' + this.textContent);
-        });
-    });
-});
-</script>
- 
 
 
 
