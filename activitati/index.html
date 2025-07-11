@@ -2340,71 +2340,46 @@ document.querySelectorAll('.pdf-btn').forEach(button => {
   
   
 <script>
-document.addEventListener('DOMContentLoaded', function () {
+  document.addEventListener('DOMContentLoaded', function () {
     const carousel = document.querySelector('.gallery-carousel');
     const track = document.querySelector('.carousel-track');
     const items = document.querySelectorAll('.carousel-item');
-    const itemsPerRow = 3;
 
-    // Așteaptă ca TOATE imaginile să se încarce
-    let images = Array.from(track.querySelectorAll('img'));
-    let loadedCount = 0;
-
-    images.forEach(img => {
-        if (img.complete) {
-            loadedCount++;
-        } else {
-            img.addEventListener('load', () => {
-                loadedCount++;
-                if (loadedCount === images.length) {
-                    startCarousel();
-                }
-            });
-        }
+    // Clonăm itemele pentru a avea continuitate
+    items.forEach(item => {
+      const clone = item.cloneNode(true);
+      track.appendChild(clone);
     });
 
-    if (loadedCount === images.length) {
-        startCarousel(); // Dacă toate sunt deja încărcate
+    let scrollPos = 0;
+    const scrollSpeed = 0.5; // pixeli per frame
+
+    function animate() {
+      scrollPos += scrollSpeed;
+      track.style.transform = `translateY(-${scrollPos}px)`;
+
+      // Când a derulat cât tot track-ul original, resetează
+      if (scrollPos >= track.scrollHeight / 2) {
+        scrollPos = 0;
+      }
+
+      requestAnimationFrame(animate);
     }
 
-    function startCarousel() {
-        const itemHeight = items[0].offsetHeight;
-        const rowCount = Math.ceil(items.length / itemsPerRow);
-        const carouselHeight = rowCount * itemHeight;
+    // Start animație
+    animate();
 
-        // Setează înălțimea caruselului
-        carousel.style.height = `${carouselHeight}px`;
+    // Pause on hover
+    carousel.addEventListener('mouseenter', () => {
+      scrollSpeed = 0;
+    });
 
-        // Clonează toate imaginile pentru derulare infinită
-        items.forEach(item => {
-            track.appendChild(item.cloneNode(true));
-        });
-
-        let scrollPos = 0;
-        let scrollSpeed = 0.5;
-
-        function animate() {
-            scrollPos += scrollSpeed;
-            if (scrollPos >= carouselHeight) {
-                scrollPos = 0;
-            }
-            track.style.transform = `translateY(-${scrollPos}px)`;
-            requestAnimationFrame(animate);
-        }
-
-        animate();
-
-        // Pause on hover
-        carousel.addEventListener('mouseenter', () => {
-            scrollSpeed = 0;
-        });
-
-        carousel.addEventListener('mouseleave', () => {
-            scrollSpeed = 0.5;
-        });
-    }
-});
+    carousel.addEventListener('mouseleave', () => {
+      scrollSpeed = 0.5;
+    });
+  });
 </script>
+
 
 
   
