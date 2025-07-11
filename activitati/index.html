@@ -2339,47 +2339,73 @@ document.querySelectorAll('.pdf-btn').forEach(button => {
 </section>
   
   
-  <script>
-  document.addEventListener('DOMContentLoaded', function() {
+<script>
+document.addEventListener('DOMContentLoaded', function () {
     const carousel = document.querySelector('.gallery-carousel');
     const track = document.querySelector('.carousel-track');
     const items = document.querySelectorAll('.carousel-item');
-    
     const itemsPerRow = 3;
-    const rowCount = Math.ceil(items.length / itemsPerRow);
-    const itemHeight = items[0].offsetHeight;
-    const carouselHeight = rowCount * itemHeight;
-    <!-- carousel.style.height = `${carouselHeight}px`; -->
-    
-    // Clone images for infinite effect
-    items.forEach(item => {
-        track.appendChild(item.cloneNode(true));
+
+    // Așteaptă ca TOATE imaginile să se încarce
+    let images = Array.from(track.querySelectorAll('img'));
+    let loadedCount = 0;
+
+    images.forEach(img => {
+        if (img.complete) {
+            loadedCount++;
+        } else {
+            img.addEventListener('load', () => {
+                loadedCount++;
+                if (loadedCount === images.length) {
+                    startCarousel();
+                }
+            });
+        }
     });
 
-    let scrollPos = 0;
-    let scrollSpeed = 0.5; // ✅ schimbat din const în let
-
-    function animate() {
-        scrollPos += scrollSpeed;
-        if (scrollPos >= carouselHeight) {
-            scrollPos = 0;
-        }
-        track.style.transform = `translateY(-${scrollPos}px)`;
-        requestAnimationFrame(animate);
+    if (loadedCount === images.length) {
+        startCarousel(); // Dacă toate sunt deja încărcate
     }
 
-    animate();
+    function startCarousel() {
+        const itemHeight = items[0].offsetHeight;
+        const rowCount = Math.ceil(items.length / itemsPerRow);
+        const carouselHeight = rowCount * itemHeight;
 
-    // ✅ Hover pause
-    carousel.addEventListener('mouseenter', () => {
-        scrollSpeed = 0;
-    });
+        // Setează înălțimea caruselului
+        carousel.style.height = `${carouselHeight}px`;
 
-    carousel.addEventListener('mouseleave', () => {
-        scrollSpeed = 0.5;
-    });
-  });
+        // Clonează toate imaginile pentru derulare infinită
+        items.forEach(item => {
+            track.appendChild(item.cloneNode(true));
+        });
+
+        let scrollPos = 0;
+        let scrollSpeed = 0.5;
+
+        function animate() {
+            scrollPos += scrollSpeed;
+            if (scrollPos >= carouselHeight) {
+                scrollPos = 0;
+            }
+            track.style.transform = `translateY(-${scrollPos}px)`;
+            requestAnimationFrame(animate);
+        }
+
+        animate();
+
+        // Pause on hover
+        carousel.addEventListener('mouseenter', () => {
+            scrollSpeed = 0;
+        });
+
+        carousel.addEventListener('mouseleave', () => {
+            scrollSpeed = 0.5;
+        });
+    }
+});
 </script>
+
 
   
   
