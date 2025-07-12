@@ -59,33 +59,25 @@ according to applicable laws.
 <!-- DE VERIFICAT PENTRU PREVENIRE -->
 <script>
 	document.addEventListener('DOMContentLoaded', function() {
-    const gallery = document.querySelector('.gallery-grid');
-    if (!gallery) return;
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    const uniqueImages = new Set(); // Pentru a ține evidența imaginilor unice
 
-    // 1. Blochează modificări în structură
-    Object.freeze(gallery.children); 
-
-    // 2. Asigură-te că fiecare `.gallery-item` are exact 1 imagine
-    const items = gallery.querySelectorAll('.gallery-item');
-    items.forEach((item, index) => {
-        // Adaugă atribut unic pentru fiecare div
-        item.setAttribute('data-index', index);
-        
-        // Șterge orice conținut în plus (dacă există)
-        const images = item.querySelectorAll('img');
-        if (images.length > 1) {
-            console.warn(`Șters conținut extra în .gallery-item[${index}]`);
-            for (let i = 1; i < images.length; i++) {
-                images[i].remove(); // Lasă doar prima imagine
+    galleryItems.forEach(item => {
+        const img = item.querySelector('img');
+        if (img) {
+            const imgSrc = img.src;
+            
+            // Verifică dacă imaginea s-a repetat
+            if (uniqueImages.has(imgSrc)) {
+                item.remove(); // Șterge întregul div .gallery-item duplicat
+            } else {
+                uniqueImages.add(imgSrc); // Adaugă imaginea în Set
             }
         }
-
-        // Blochează div-ul (opțional)
-        item.style.userSelect = 'none';
-        item.style.pointerEvents = 'none'; 
     });
 
-    console.log('Structura galeriei blocată. Număr de itemi:', items.length);
+    console.log('Imagini unice afișate:', uniqueImages.size);
+});
 });
 
 	    </script>
