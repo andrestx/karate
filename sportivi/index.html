@@ -1743,164 +1743,125 @@ document.addEventListener('DOMContentLoaded', function() {
 </style>
 
 <script>
-// Gallery Filter Functionality
-document.querySelectorAll('.filter-btn').forEach(btn => {
-    btn.addEventListener('click', function() {
-        // Remove active class from all buttons
-        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-        
-        // Add active class to clicked button
-        this.classList.add('active');
-        
-        const filter = this.dataset.filter;
-        const galleryItems = document.querySelectorAll('.gallery-item');
-        
-        galleryItems.forEach(item => {
-            if(filter === 'all' || item.dataset.category === filter) {
-                item.style.display = 'block';
-                item.style.animation = 'galleryItemAppear 0.6s forwards';
-            } else {
-                item.style.display = 'none';
-            }
-        });
-    });
-});
-
-// Lightbox Functionality
-const galleryItems = document.querySelectorAll('.gallery-item');
-const lightbox = document.createElement('div');
-lightbox.className = 'lightbox';
-lightbox.innerHTML = `
-    <div class="lightbox-content">
-        <span class="lightbox-close">&times;</span>
-        <img class="lightbox-img" src="" alt="">
-        <div class="lightbox-caption"></div>
-        <div class="lightbox-nav">
-            <button class="lightbox-prev"><i class="fas fa-chevron-left"></i></button>
-            <button class="lightbox-next"><i class="fas fa-chevron-right"></i></button>
-        </div>
-    </div>
-`;
-document.body.appendChild(lightbox);
-
-let currentImageIndex = 0;
-const images = Array.from(galleryItems).map(item => ({
-    src: item.querySelector('img').src,
-    title: item.querySelector('h3')?.textContent || '',
-    description: item.querySelector('p')?.textContent || ''
-}));
-
-galleryItems.forEach((item, index) => {
-    item.addEventListener('click', () => {
-        currentImageIndex = index;
-        openLightbox();
-    });
-});
-
-function openLightbox() {
-    const lightboxImg = lightbox.querySelector('.lightbox-img');
-    const lightboxCaption = lightbox.querySelector('.lightbox-caption');
-    
-    lightboxImg.src = images[currentImageIndex].src;
-    lightboxCaption.innerHTML = `
-        <h3>${images[currentImageIndex].title}</h3>
-        <p>${images[currentImageIndex].description}</p>
-    `;
-    
-    lightbox.classList.add('active');
-    document.body.style.overflow = 'hidden';
-}
-
-function closeLightbox() {
-    lightbox.classList.remove('active');
-    document.body.style.overflow = '';
-}
-
-function navigateLightbox(direction) {
-    if(direction === 'prev') {
-        currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
-    } else {
-        currentImageIndex = (currentImageIndex + 1) % images.length;
-    }
-    
-    openLightbox();
-}
-
-// Event listeners for lightbox
-lightbox.querySelector('.lightbox-close').addEventListener('click', closeLightbox);
-lightbox.querySelector('.lightbox-prev').addEventListener('click', () => navigateLightbox('prev'));
-lightbox.querySelector('.lightbox-next').addEventListener('click', () => navigateLightbox('next'));
-
-// Close lightbox when clicking outside the image
-lightbox.addEventListener('click', (e) => {
-    if(e.target === lightbox) {
-        closeLightbox();
-    }
-});
-
-// Keyboard navigation
-document.addEventListener('keydown', (e) => {
-    if(lightbox.classList.contains('active')) {
-        if(e.key === 'Escape') {
-            closeLightbox();
-        } else if(e.key === 'ArrowLeft') {
-            navigateLightbox('prev');
-        } else if(e.key === 'ArrowRight') {
-            navigateLightbox('next');
-        }
-    }
-});
-
-const loadMoreBtn = document.getElementById('loadMoreBtn');
-    if (loadMoreBtn) {
-        loadMoreBtn.addEventListener('click', function() {
-            // Listă de imagini backup unice care NU sunt deja afișate
-            const backupImages = [
-                '../images/26.jpg',
-                '../images/27.jpg',
-                '../images/28.jpg',
-                '../images/29.jpg',
-                '../images/30.jpg',
-                // Adaugă aici alte imagini unice din galeria ta
-            ].filter(src => !document.querySelector(`.gallery-item img[src="${src}"]`));
-
-            if (backupImages.length === 0) {
-                this.textContent = "Toate pozele sunt afișate";
-                this.disabled = true;
-                return;
-            }
-
-            const galleryGrid = document.querySelector('.gallery-grid');
-            const itemsToAdd = Math.min(4, backupImages.length);
-
-            for (let i = 0; i < itemsToAdd; i++) {
-                const newItem = document.createElement('div');
-                newItem.className = 'gallery-item';
-                newItem.dataset.category = 'new'; // Poți seta o categorie
-                newItem.innerHTML = `<img src="${backupImages[i]}" alt="Imagine ${i+1}">`;
-                galleryGrid.appendChild(newItem);
-            }
-
-            // Reinițializează lightbox-ul pentru noile imagini
-            initLightbox();
-        });
-    }
-
-    // Funcție pentru a reinițializa lightbox-ul după adăugare de imagini noi
-    function initLightbox() {
-        const galleryItems = document.querySelectorAll('.gallery-item');
-        images = Array.from(galleryItems).map(item => ({
-            src: item.querySelector('img').src,
-            title: item.querySelector('h3')?.textContent || '',
-            description: item.querySelector('p')?.textContent || ''
-        }));
-
-        galleryItems.forEach((item, index) => {
-            item.addEventListener('click', () => {
-                currentImageIndex = index;
-                openLightbox();
+document.addEventListener('DOMContentLoaded', function() {
+    // 1. Funcționalitatea pentru filtrare
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            // Remove active class from all buttons
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            
+            // Add active class to clicked button
+            this.classList.add('active');
+            
+            const filter = this.dataset.filter;
+            const galleryItems = document.querySelectorAll('.gallery-item');
+            
+            galleryItems.forEach(item => {
+                if(filter === 'all' || item.dataset.category === filter) {
+                    item.style.display = 'block';
+                    item.style.animation = 'galleryItemAppear 0.6s forwards';
+                } else {
+                    item.style.display = 'none';
+                }
             });
         });
+    });
+
+    // 2. Lightbox Functionality
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    const lightbox = document.createElement('div');
+    lightbox.className = 'lightbox';
+    lightbox.innerHTML = `
+        <div class="lightbox-content">
+            <span class="lightbox-close">&times;</span>
+            <img class="lightbox-img" src="" alt="">
+            <div class="lightbox-caption"></div>
+            <div class="lightbox-nav">
+                <button class="lightbox-prev"><i class="fas fa-chevron-left"></i></button>
+                <button class="lightbox-next"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    `;
+    document.body.appendChild(lightbox);
+
+    let currentImageIndex = 0;
+    let images = Array.from(galleryItems).map(item => ({
+        src: item.querySelector('img').src,
+        title: item.querySelector('h3')?.textContent || '',
+        description: item.querySelector('p')?.textContent || ''
+    }));
+
+    galleryItems.forEach((item, index) => {
+        item.addEventListener('click', () => {
+            currentImageIndex = index;
+            openLightbox();
+        });
+    });
+
+    function openLightbox() {
+        const lightboxImg = lightbox.querySelector('.lightbox-img');
+        const lightboxCaption = lightbox.querySelector('.lightbox-caption');
+        
+        lightboxImg.src = images[currentImageIndex].src;
+        lightboxCaption.innerHTML = `
+            <h3>${images[currentImageIndex].title}</h3>
+            <p>${images[currentImageIndex].description}</p>
+        `;
+        
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    function navigateLightbox(direction) {
+        if(direction === 'prev') {
+            currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+        } else {
+            currentImageIndex = (currentImageIndex + 1) % images.length;
+        }
+        
+        openLightbox();
+    }
+
+    // Event listeners for lightbox
+    lightbox.querySelector('.lightbox-close').addEventListener('click', closeLightbox);
+    lightbox.querySelector('.lightbox-prev').addEventListener('click', () => navigateLightbox('prev'));
+    lightbox.querySelector('.lightbox-next').addEventListener('click', () => navigateLightbox('next'));
+
+    // Close lightbox when clicking outside the image
+    lightbox.addEventListener('click', (e) => {
+        if(e.target === lightbox) {
+            closeLightbox();
+        }
+    });
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+        if(lightbox.classList.contains('active')) {
+            if(e.key === 'Escape') {
+                closeLightbox();
+            } else if(e.key === 'ArrowLeft') {
+                navigateLightbox('prev');
+            } else if(e.key === 'ArrowRight') {
+                navigateLightbox('next');
+            }
+        }
+    });
+
+    // 3. Dezactivare buton "Load More" fără a afecta afișarea inițială
+    const loadMoreBtn = document.getElementById('loadMoreBtn');
+    if (loadMoreBtn) {
+        loadMoreBtn.style.display = 'none'; // Ascunde butonul
+        
+        // SAU pentru a-l dezactiva dar păstra în DOM:
+        // loadMoreBtn.disabled = true;
+        // loadMoreBtn.textContent = "Toate pozele sunt afișate";
+        // loadMoreBtn.style.opacity = "0.6";
+        // loadMoreBtn.style.cursor = "not-allowed";
     }
 });
 </script>
