@@ -1851,28 +1851,56 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
-// Load More Functionality
-document.getElementById('loadMoreBtn')?.addEventListener('click', function() {
-    // In a real implementation, this would load more items from the server
-    // For demo purposes, we'll just clone some existing items
-    const galleryGrid = document.querySelector('.gallery-grid');
-    const existingItems = document.querySelectorAll('.gallery-item');
-    const itemsToAdd = 4;
-    
-    for(let i = 0; i < Math.min(itemsToAdd, existingItems.length); i++) {
-        const clone = existingItems[i].cloneNode(true);
-        galleryGrid.appendChild(clone);
-        
-        // Reset animation for the new item
-        clone.style.animation = 'none';
-        setTimeout(() => {
-            clone.style.animation = 'galleryItemAppear 0.6s forwards';
-        }, 10);
+const loadMoreBtn = document.getElementById('loadMoreBtn');
+    if (loadMoreBtn) {
+        loadMoreBtn.addEventListener('click', function() {
+            // Listă de imagini backup unice care NU sunt deja afișate
+            const backupImages = [
+                '../images/26.jpg',
+                '../images/27.jpg',
+                '../images/28.jpg',
+                '../images/29.jpg',
+                '../images/30.jpg',
+                // Adaugă aici alte imagini unice din galeria ta
+            ].filter(src => !document.querySelector(`.gallery-item img[src="${src}"]`));
+
+            if (backupImages.length === 0) {
+                this.textContent = "Toate pozele sunt afișate";
+                this.disabled = true;
+                return;
+            }
+
+            const galleryGrid = document.querySelector('.gallery-grid');
+            const itemsToAdd = Math.min(4, backupImages.length);
+
+            for (let i = 0; i < itemsToAdd; i++) {
+                const newItem = document.createElement('div');
+                newItem.className = 'gallery-item';
+                newItem.dataset.category = 'new'; // Poți seta o categorie
+                newItem.innerHTML = `<img src="${backupImages[i]}" alt="Imagine ${i+1}">`;
+                galleryGrid.appendChild(newItem);
+            }
+
+            // Reinițializează lightbox-ul pentru noile imagini
+            initLightbox();
+        });
     }
-    
-    // Hide button if we've reached the max (for demo)
-    if(galleryGrid.children.length >= 12) {
-        this.style.display = 'none';
+
+    // Funcție pentru a reinițializa lightbox-ul după adăugare de imagini noi
+    function initLightbox() {
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        images = Array.from(galleryItems).map(item => ({
+            src: item.querySelector('img').src,
+            title: item.querySelector('h3')?.textContent || '',
+            description: item.querySelector('p')?.textContent || ''
+        }));
+
+        galleryItems.forEach((item, index) => {
+            item.addEventListener('click', () => {
+                currentImageIndex = index;
+                openLightbox();
+            });
+        });
     }
 });
 </script>
