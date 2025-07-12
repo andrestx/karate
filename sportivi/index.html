@@ -58,26 +58,13 @@ according to applicable laws.
 
 <!-- DE VERIFICAT PENTRU PREVENIRE -->
 <script>
-	document.addEventListener('DOMContentLoaded', function() {
-    const galleryItems = document.querySelectorAll('.gallery-item');
-    const uniqueImages = new Set(); // Pentru a ține evidența imaginilor unice
-
-    galleryItems.forEach(item => {
-        const img = item.querySelector('img');
-        if (img) {
-            const imgSrc = img.src;
-            
-            // Verifică dacă imaginea s-a repetat
-            if (uniqueImages.has(imgSrc)) {
-                item.remove(); // Șterge întregul div .gallery-item duplicat
-            } else {
-                uniqueImages.add(imgSrc); // Adaugă imaginea în Set
-            }
-        }
-    });
-
-    console.log('Imagini unice afișate:', uniqueImages.size);
-});
+document.addEventListener('DOMContentLoaded', function() {
+    const loadMoreBtn = document.getElementById('loadMoreBtn');
+    if (loadMoreBtn) {
+        loadMoreBtn.remove(); // Șterge complet butonul
+        // SAU
+        // loadMoreBtn.style.display = 'none'; // Doar îl ascunde
+    }
 });
 
 	    </script>
