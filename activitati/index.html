@@ -35,184 +35,6 @@ according to applicable laws.
 
 
 
-
-
-<!-- Notificare Site în Construcție + Login Secret -->
-<div id="construction-notice" style="position:fixed; top:0; left:0; width:100%; height:100vh; background:linear-gradient(145deg, #e0eafc, #cfdef3); display:flex; align-items:center; justify-content:center; flex-direction:column; z-index:9999; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; animation:fadeInPage 1s ease;">
-
-  <!-- Canvas pentru buline -->
-  <canvas id="bubbles-canvas" style="position:absolute; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:0;"></canvas>
-
-  <h1 style="font-size:3em; color:#2c3e50; margin-bottom:12px; animation:slideDown 0.8s ease forwards;">🔧 Site în construcție</h1>
-  <p style="font-size:1.3em; color:#34495e; text-align:center; max-width:520px; line-height:1.4; opacity:0; animation:fadeInText 1s 0.6s forwards;">
-    Pregătim ceva special pentru tine!<br>Lucrăm din greu pentru a finaliza noul nostru site web.
-  </p>
-
-  <!-- Buton invizibil în colț dreapta jos -->
-  <button id="secret-button" style="position:absolute; bottom:10px; right:10px; opacity:0; width:40px; height:40px; cursor:pointer; border:none; background:none;"></button>
-
-  <!-- Panou Login ascuns -->
-  <div id="login-panel" style="display:none; margin-top:32px; background:#ffffff; padding:28px 32px; box-shadow:0 10px 30px rgba(0,0,0,0.12); border-radius:14px; animation:fadeInPanel 0.4s ease; min-width:320px; position:relative; z-index:10;">
-    <h2 style="margin-bottom:20px; color:#2c3e50; font-weight:600;">🔐 Autentificare</h2>
-    <input type="text" id="username" placeholder="Utilizator" style="padding:12px 14px; margin-bottom:14px; width:100%; border:1.8px solid #ccc; border-radius:8px; font-size:1em; transition: border-color 0.3s, box-shadow 0.3s;"><br>
-    <input type="password" id="password" placeholder="Parolă" style="padding:12px 14px; margin-bottom:20px; width:100%; border:1.8px solid #ccc; border-radius:8px; font-size:1em; transition: border-color 0.3s, box-shadow 0.3s;"><br>
-    <button onclick="verifyLogin()" style="padding:12px 28px; background:#3498db; color:#fff; border:none; border-radius:8px; font-size:1em; cursor:pointer; transition:background 0.3s;">
-      Login
-    </button>
-  </div>
-
-  <!-- Zona de avertizare administrativă (ascunsă la început) -->
-  <div id="admin-alert" style="display:none; margin-top:20px; padding:16px 24px; background:#e74c3c; color:#fff; font-weight:700; border-radius:12px; box-shadow: 0 0 20px rgba(231, 76, 60, 0.8); min-width:320px; max-width:400px; text-align:center; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; animation:fadeInPanel 0.5s ease;">
-    ⚠️ <span style="text-transform:uppercase;">Zona administrativă</span><br>
-    Notificare trimisă administratorului!<br>
-    IP detectat și înregistrat!
-  </div>
-
-  <!-- Footer cu semnătură -->
-  <footer style="position:absolute; bottom:14px; font-size:0.9em; color:#7f8c8d; font-weight:500; user-select:none; z-index:10;">
-    Site făcut de 
-    <a href="https://andreist.great-site.net" target="_blank" rel="noopener noreferrer" style="color:#2980b9; text-decoration:none; font-weight:600;">Andrei Stănescu</a>
-  </footer>
-</div>
-
-<style>
-  @keyframes fadeInPage {
-    from {opacity: 0;}
-    to {opacity: 1;}
-  }
-
-  @keyframes fadeOutPage {
-    to {opacity: 0; visibility: hidden;}
-  }
-
-  @keyframes slideDown {
-    from {transform: translateY(-20px); opacity: 0;}
-    to {transform: translateY(0); opacity: 1;}
-  }
-
-  @keyframes fadeInText {
-    to {opacity: 1;}
-  }
-
-  @keyframes fadeInPanel {
-    from {opacity: 0; transform: scale(0.95);}
-    to {opacity: 1; transform: scale(1);}
-  }
-
-  #login-panel button:hover {
-    background: #2980b9;
-  }
-
-  input:focus {
-    outline: none;
-    border-color: #3498db !important;
-    box-shadow: 0 0 6px rgba(52, 152, 219, 0.5) !important;
-  }
-
-  a:hover {
-    text-decoration: underline;
-  }
-</style>
-
-<script>
-  const canvas = document.getElementById('bubbles-canvas');
-  const ctx = canvas.getContext('2d');
-
-  let width, height;
-  let bubbles = [];
-
-  function resize() {
-    width = canvas.width = canvas.clientWidth;
-    height = canvas.height = canvas.clientHeight;
-  }
-  resize();
-  window.addEventListener('resize', resize);
-
-  class Bubble {
-    constructor() {
-      this.radius = 8 + Math.random() * 7;
-      this.x = Math.random() * width;
-      this.y = Math.random() * height * 0.5 - height;
-      this.vx = (Math.random() - 0.5) * 1.2;
-      this.vy = 0;
-      this.gravity = 0.15 + Math.random() * 0.05;
-      this.color = `hsl(${Math.random() * 360}, 70%, 65%)`;
-      this.bounceFactor = 0.7 + Math.random() * 0.3;
-    }
-
-    update() {
-      this.vy += this.gravity;
-      this.x += this.vx;
-      this.y += this.vy;
-
-      if (this.y + this.radius > height) {
-        this.y = height - this.radius;
-        this.vy *= -this.bounceFactor;
-      }
-      if (this.x + this.radius > width) {
-        this.x = width - this.radius;
-        this.vx *= -1;
-      }
-      if (this.x - this.radius < 0) {
-        this.x = this.radius;
-        this.vx *= -1;
-      }
-    }
-
-    draw() {
-      ctx.beginPath();
-      ctx.fillStyle = this.color;
-      ctx.shadowColor = this.color;
-      ctx.shadowBlur = 6;
-      ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-      ctx.fill();
-    }
-  }
-
-  for(let i=0; i<40; i++){
-    bubbles.push(new Bubble());
-  }
-
-  function animate() {
-    ctx.clearRect(0, 0, width, height);
-    bubbles.forEach(bubble => {
-      bubble.update();
-      bubble.draw();
-    });
-    requestAnimationFrame(animate);
-  }
-  animate();
-
-  const secretBtn = document.getElementById('secret-button');
-  const loginPanel = document.getElementById('login-panel');
-  const adminAlert = document.getElementById('admin-alert');
-  const notice = document.getElementById('construction-notice');
-
-  secretBtn.addEventListener('click', () => {
-    loginPanel.style.display = 'block';
-    loginPanel.style.animation = 'fadeInPanel 0.4s ease';
-    adminAlert.style.display = 'block';
-    adminAlert.style.animation = 'fadeInPanel 0.5s ease';
-  });
-
-  function verifyLogin() {
-    const user = document.getElementById('username').value.trim();
-    const pass = document.getElementById('password').value.trim();
-
-    if (user === 'andrei' && pass === 'andrei') {
-      notice.style.animation = 'fadeOutPage 0.5s ease forwards';
-      setTimeout(() => {
-        notice.style.display = 'none';
-      }, 500);
-    } else {
-      alert('Date incorecte! ADMINISTRATOR SESIZAT! IP INREGISTRAT!');
-    }
-  }
-</script>
-
-
-
-
     
 
 
@@ -1315,7 +1137,8 @@ according to applicable laws.
     </style>
 </head>
 <body>
-    <!-- Header -->
+    <!-- 
+ -->
     <header>
         <div class="header-content">
             <div class="logo">
@@ -1343,7 +1166,47 @@ according to applicable laws.
         </div>
     </header>
 
-   
+   <div class="wave-container" style="margin-top: -3.3cm; background: white;">
+ <svg width="100%" height="100%" viewBox="0 0 1440 390" xmlns="http://www.w3.org/2000/svg" style="display: block; margin-top: -2px;">
+  <style>
+    .wave-path {
+      animation: waveAnim 4s linear infinite;
+    }
+
+    @keyframes waveAnim {
+      0% {
+        d: path("M 0,400 L 0,150 C 49.28,172.29 98.56,194.57 164,185 C 229.44,175.43 311.03,133.99 372,127 C 432.97,120.01 473.31,147.45 538,177 C 602.69,206.55 691.71,238.2 743,217 C 794.29,195.8 807.83,121.76 869,112 C 930.17,102.24 1038.97,156.76 1107,171 C 1175.03,185.24 1202.29,159.21 1251,149 C 1299.71,138.79 1369.85,144.39 1440,150 L 1440,400 L 0,400 Z");
+      }
+      25% {
+        d: path("M 0,400 L 0,150 C 73.21,169.92 146.42,189.84 207,175 C 267.58,160.16 315.52,110.55 375,102 C 434.48,93.45 505.51,125.97 572,146 C 638.49,166.03 700.45,173.59 749,188 C 797.55,202.41 832.71,223.68 880,208 C 927.29,192.32 986.73,139.7 1047,139 C 1107.27,138.3 1168.36,189.51 1234,200 C 1299.64,210.49 1369.82,180.24 1440,150 L 1440,400 L 0,400 Z");
+      }
+      50% {
+        d: path("M 0,400 L 0,150 C 55.86,158.82 111.72,167.64 169,179 C 226.28,190.36 284.97,204.26 352,205 C 419.03,205.74 494.4,193.3 556,157 C 617.6,120.7 665.43,60.52 713,80 C 760.57,99.48 807.89,198.62 872,209 C 936.11,219.38 1017.03,140.99 1078,102 C 1138.97,63.01 1179.99,63.43 1237,78 C 1294.01,92.57 1367,121.28 1440,150 L 1440,400 L 0,400 Z");
+      }
+      75% {
+        d: path("M 0,400 L 0,150 C 63.43,103.95 126.85,57.91 178,75 C 229.15,92.09 268.01,172.33 328,169 C 387.99,165.67 469.11,78.77 544,89 C 618.89,99.23 687.55,206.61 750,209 C 812.45,211.39 868.68,108.81 926,87 C 983.32,65.19 1041.74,124.17 1095,132 C 1148.26,139.83 1196.36,96.52 1253,91 C 1309.64,85.48 1374.82,117.74 1440,150 L 1440,400 L 0,400 Z");
+      }
+      100% {
+        d: path("M 0,400 L 0,150 C 49.28,172.29 98.56,194.57 164,185 C 229.44,175.43 311.03,133.99 372,127 C 432.97,120.01 473.31,147.45 538,177 C 602.69,206.55 691.71,238.2 743,217 C 794.29,195.8 807.83,121.76 869,112 C 930.17,102.24 1038.97,156.76 1107,171 C 1175.03,185.24 1202.29,159.21 1251,149 C 1299.71,138.79 1369.85,144.39 1440,150 L 1440,400 L 0,400 Z");
+      }
+    }
+  </style>
+
+  <defs>
+    <linearGradient id="gradient" x1="15%" y1="15%" x2="85%" y2="85%">
+      <stop offset="5%" stop-color="var(--dark)" />
+      <stop offset="95%" stop-color="var(--secondary)" />
+    </linearGradient>
+  </defs>
+
+  <path d="M 0,400 L 0,150 ..." fill="url(#gradient)" class="wave-path" transform="rotate(180 720 200)"></path>
+</svg>
+
+
+
+
+
+</div>
   
   
   
@@ -1577,7 +1440,7 @@ document.querySelectorAll('.pdf-btn').forEach(button => {
     height: 80px;
     transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
     overflow: hidden;
-    background: #2c73df;
+    background: #44799b;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
@@ -2062,7 +1925,7 @@ document.querySelectorAll('.pdf-btn').forEach(button => {
   
   
   <!-- Replace your existing gallery section with this code -->
-<section class="section gallery" id="gallery">
+<section class="section gallery" id="gallery" style="background-color: transparent;">
     <div class="section-title">
         <h2>Galerie Foto</h2>
     </div>
@@ -2609,7 +2472,7 @@ document.addEventListener('DOMContentLoaded', function () {
     left: 15px;
     right: 15px;
     padding: 20px;
-    background: linear-gradient(transparent, rgba(29, 53, 87, 0.9));
+    background: white;
     color: white;
     border-radius: 0 0 10px 10px;
     transition: bottom 0.3s ease-out;
@@ -2753,9 +2616,9 @@ document.addEventListener('DOMContentLoaded', function() {
         <div id="formStatus" style="margin-top: 15px;"></div>
     </form>
 </div>
-</section>
+</section> -->
 
-<div class="wave-container" style="margin-bottom: -0.2cm; background: #e0e0e0;">
+<div class="wave-container" style="margin-bottom: -0.2cm; background: white;">
  <svg width="100%" height="100%" id="svg" viewBox="0 0 1440 200" xmlns="http://www.w3.org/2000/svg" class="transition duration-300 ease-in-out delay-150">
   <style>
     .path-0 {
