@@ -36,6 +36,9 @@ according to applicable laws.
 
 
 
+
+
+
 <!-- Notificare Site în Construcție + Login Secret -->
 <div id="construction-notice" style="position:fixed; top:0; left:0; width:100%; height:100vh; background:linear-gradient(145deg, #e0eafc, #cfdef3); display:flex; align-items:center; justify-content:center; flex-direction:column; z-index:9999; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; animation:fadeInPage 1s ease;">
 
@@ -44,7 +47,9 @@ according to applicable laws.
 
   <h1 style="font-size:3em; color:#2c3e50; margin-bottom:12px; animation:slideDown 0.8s ease forwards;">🔧 Site în construcție</h1>
   <p style="font-size:1.3em; color:#34495e; text-align:center; max-width:520px; line-height:1.4; opacity:0; animation:fadeInText 1s 0.6s forwards;">
-    Pregătim ceva special pentru tine!<br>Lucrăm din greu pentru a finaliza noul nostru site web.
+    Pregătim ceva special pentru tine!<br>Lucrăm din greu pentru a finaliza noul nostru site web.<br><br>
+    Ne poți contacta oricând accesând pagina noastră de contact:<br>
+    <a href="https://tskro.org/contact/" target="_blank" style="color:#2980b9; font-weight:600; text-decoration:none;">https://tskro.org/contact/</a>
   </p>
 
   <!-- Buton invizibil în colț dreapta jos -->
@@ -68,7 +73,7 @@ according to applicable laws.
   </div>
 
   <!-- Footer cu semnătură -->
-  <footer style="position:absolute; bottom:14px; font-size:0.9em; color:#7f8c8d; font-weight:500; user-select:none; z-index:10;">
+    <footer style="position:absolute; bottom:14px; font-size:0.9em; color:#7f8c8d; font-weight:500; user-select:none; z-index:10; background:transparent;">
     Site făcut de 
     <a href="https://andreist.great-site.net" target="_blank" rel="noopener noreferrer" style="color:#2980b9; text-decoration:none; font-weight:600;">Andrei Stănescu</a>
   </footer>
@@ -211,9 +216,6 @@ according to applicable laws.
 
 
 
-
-
-
     
 
 
@@ -235,7 +237,7 @@ according to applicable laws.
         }
         
         body {
-            background-color: var(--light);
+            background-color: white;
             color: var(--secondary);
             overflow-x: hidden;
         }
@@ -1454,19 +1456,19 @@ document.querySelectorAll('.pdf-btn').forEach(button => {
                 <h3>Evoluția Noastră</h3>
                 <p>De la primul dojo până la comunitatea actuală</p>
             </div>
-            
+           
             <div class="timeline">
                 <div class="timeline-item">
-                    <div class="timeline-year">1995</div>
+                    <div class="timeline-year">1975</div>
                     <div class="timeline-content">
                         <h4>Fundația Clubului</h4>
-                        <p>Primul dojo deschis în București cu doar 7 elevi</p>
+                        <p>Primul dojo deschis în Brașov.</p>
                         <div class="timeline-image">
-                            <img src="old-dojo.jpg" alt="Primul dojo">
+                            <img src="inceput.jpg" alt="Primul dojo">
                         </div>
                     </div>
                 </div>
-                
+                 <!--
                 <div class="timeline-item">
                     <div class="timeline-year">2002</div>
                     <div class="timeline-content">
@@ -1485,12 +1487,12 @@ document.querySelectorAll('.pdf-btn').forEach(button => {
                         </div>
                     </div>
                 </div>
-                
+                -->
                 <div class="timeline-item">
                     <div class="timeline-year">2023</div>
                     <div class="timeline-content">
                         <h4>Comunitate Globală</h4>
-                        <p>Peste 1000 de elevi activi și colaborări internaționale</p>
+                        <p>Peste 100 de elevi activi și colaborări internaționale</p>
                     </div>
                 </div>
             </div>
@@ -1541,12 +1543,12 @@ document.querySelectorAll('.pdf-btn').forEach(button => {
         <!-- Team Stats -->
         <div class="stats-section">
             <div class="stat-card">
-                <div class="stat-number" data-count="25">0</div>
+                <div class="stat-number" data-count="50">0</div>
                 <div class="stat-label">Ani de Experiență</div>
             </div>
             
             <div class="stat-card">
-                <div class="stat-number" data-count="1000">0</div>
+                <div class="stat-number" data-count="11275">0</div>
                 <div class="stat-label">Eliți Instruiți</div>
             </div>
             
@@ -1556,7 +1558,7 @@ document.querySelectorAll('.pdf-btn').forEach(button => {
             </div>
             
             <div class="stat-card">
-                <div class="stat-number" data-count="10">0</div>
+                <div class="stat-number" data-count="1">0</div>
                 <div class="stat-label">Orașe în România</div>
             </div>
         </div>
@@ -1570,51 +1572,160 @@ document.querySelectorAll('.pdf-btn').forEach(button => {
                     <div class="testimonial-content">
                         <p>"Clubul acesta a schimbat viața mea. Am învățat nu doar să mă apăr, ci și să fiu mai disciplinat în toate aspectele vieții."</p>
                     </div>
-                    <div class="testimonial-author">
-                        <img src="student1.jpg" alt="Andrei Ionescu">
-                        <div>
-                            <h5>Andrei Ionescu</h5>
-                            <span>Elev din 2015</span>
-                        </div>
-                    </div>
+                    
                 </div>
                 
                 <div class="testimonial-card">
                     <div class="testimonial-content">
                         <p>"Atmosfera de familie și profesionalismul instructorilor fac din acest loc unul special. Recomand cu toată inima!"</p>
                     </div>
-                    <div class="testimonial-author">
-                        <img src="student2.jpg" alt="Elena Popescu">
-                        <div>
-                            <h5>Elena Popescu</h5>
-                            <span>Mama unui elev</span>
-                        </div>
-                    </div>
+                    
                 </div>
                 
                 <div class="testimonial-card">
                     <div class="testimonial-content">
-                        <p>"Datorită antrenamentelor de aici, am devenit campion național. Mulțumesc echipei pentru sprijin și îndrumare!"</p>
+                        <p>"Datorită antrenamentelor de aici, am devenit o altă persoană. Mulțumesc echipei pentru sprijin și îndrumare!"</p>
                     </div>
-                    <div class="testimonial-author">
-                        <img src="student3.jpg" alt="Mihai Constantinescu">
-                        <div>
-                            <h5>Mihai Constantinescu</h5>
-                            <span>Campion Național 2022</span>
-                        </div>
-                    </div>
+                    
                 </div>
+              
+              <div class="testimonial-card active">
+    <div class="testimonial-content">
+        <p>"Karate-ul m-a învățat să fiu mai stăpân pe mine și să-mi depășesc limitele. La acest club am găsit nu doar antrenori, ci mentori adevărați."</p>
+    </div>
+</div>
+
+<div class="testimonial-card">
+    <div class="testimonial-content">
+        <p>"În fiecare antrenament simt cum devin mai puternic, atât fizic, cât și mental. Este locul perfect pentru oricine vrea să crească frumos."</p>
+    </div>
+</div>
+
+<div class="testimonial-card">
+    <div class="testimonial-content">
+        <p>"Fiul meu a devenit mai disciplinat și mai încrezător de când s-a înscris la club. Este o comunitate care inspiră respect și progres."</p>
+    </div>
+</div>
+
+<div class="testimonial-card">
+    <div class="testimonial-content">
+        <p>"Antrenamentele sunt intense și bine structurate, iar atmosfera este mereu pozitivă. Aici am învățat ce înseamnă cu adevărat spiritul de luptător."</p>
+    </div>
+</div>
+
+<div class="testimonial-card">
+    <div class="testimonial-content">
+        <p>"Recomand acest club tuturor celor care vor să se autodepășească și să învețe karate într-un mediu plin de susținere și profesionalism."</p>
+    </div>
+</div>
+
+              <div class="testimonial-card">
+    <div class="testimonial-content">
+        <p>"Când am început, eram timid și nesigur. Acum am încredere în mine și privesc fiecare provocare cu curaj. Mulțumesc sensei pentru răbdare și motivație!"</p>
+    </div>
+</div>
+
+<div class="testimonial-card">
+    <div class="testimonial-content">
+        <p>"La acest club am învățat că disciplina și respectul sunt cheia progresului. Karate-ul a devenit un stil de viață pentru mine."</p>
+    </div>
+</div>
+
+<div class="testimonial-card">
+    <div class="testimonial-content">
+        <p>"După fiecare antrenament simt că am evoluat. Este locul în care înveți să nu renunți, indiferent de obstacole."</p>
+    </div>
+</div>
+
+<div class="testimonial-card">
+    <div class="testimonial-content">
+        <p>"Instructorii sunt dedicați și ne susțin pas cu pas. Aici nu doar înveți karate, ci și cum să devii o versiune mai bună a ta."</p>
+    </div>
+</div>
+
+<div class="testimonial-card">
+    <div class="testimonial-content">
+        <p>"Recomand clubul tuturor părinților care vor să-și vadă copiii crescând frumos, cu încredere, disciplină și respect."</p>
+    </div>
+</div>
+
+              
+              <div class="testimonial-card">
+    <div class="testimonial-content">
+        <p>"Am descoperit aici o comunitate unită, unde fiecare te încurajează să devii mai bun. Karate-ul m-a învățat răbdarea și perseverența."</p>
+    </div>
+</div>
+
+<div class="testimonial-card">
+    <div class="testimonial-content">
+        <p>"Antrenamentele sunt solicitante, dar exact asta le face speciale. În fiecare zi învăț ceva nou despre mine și despre autocontrol."</p>
+    </div>
+</div>
+
+<div class="testimonial-card">
+    <div class="testimonial-content">
+        <p>"Am ales acest club pentru profesionalism, dar am găsit mult mai mult: prietenie, echilibru și dezvoltare personală."</p>
+    </div>
+</div>
+
+<div class="testimonial-card">
+    <div class="testimonial-content">
+        <p>"Este uimitor cât de mult a crescut încrederea copilului meu de când practică karate. Vă mulțumim pentru tot!"</p>
+    </div>
+</div>
+
+<div class="testimonial-card">
+    <div class="testimonial-content">
+        <p>"Fiecare centură obținută aici nu este doar o realizare sportivă, ci o lecție de viață. Mândru că fac parte din acest club."</p>
+    </div>
+</div>
+
+              
+              
             </div>
             
-            <div class="testimonial-nav">
+          <div class="testimonial-nav">
                 <button class="testimonial-prev"><i class="fas fa-chevron-left"></i></button>
                 <div class="testimonial-dots"></div>
                 <button class="testimonial-next"><i class="fas fa-chevron-right"></i></button>
             </div>
+            
         </div>
     </div>
 </section>
 
+  <div class="wave-container" style="margin-bottom: -0.2cm; background: white;">
+ <svg width="100%" height="100%" id="svg" viewBox="0 0 1440 200" xmlns="http://www.w3.org/2000/svg" class="transition duration-300 ease-in-out delay-150">
+  <style>
+    .path-0 {
+      animation: pathAnim-0 4s linear infinite;
+    }
+
+    @keyframes pathAnim-0 {
+      0% {
+        d: path("M 0,200 L 0,75 C 76.15,81.03 152.31,87.06 246,94.5 C 339.69,101.94 450.92,110.8 521,95.5 C 591.08,80.2 620,40.73 700,45 C 780,49.27 911.08,97.26 998,102.5 C 1084.92,107.73 1127.69,70.21 1194,58.5 C 1260.31,46.79 1350.15,60.89 1440,75 L 1440,200 L 0,200 Z");
+      }
+      25% {
+        d: path("M 0,200 L 0,75 C 72.08,87.05 144.16,99.1 211,93 C 277.84,86.9 339.44,62.65 438,66.5 C 536.56,70.35 672.07,102.3 764,102.5 C 855.93,102.7 904.29,71.15 974,55.5 C 1043.71,39.85 1134.77,40.1 1216,46 C 1297.23,51.9 1368.61,63.45 1440,75 L 1440,200 L 0,200 Z");
+      }
+      50% {
+        d: path("M 0,200 L 0,75 C 78.39,57.33 156.78,39.65 241,52.5 C 325.22,65.35 415.25,108.71 506,105.5 C 596.75,102.29 688.2,52.5 752,50 C 815.8,47.5 851.95,92.29 916,106.5 C 980.05,120.71 1072.02,104.35 1164,94 C 1255.98,83.65 1347.99,79.33 1440,75 L 1440,200 L 0,200 Z");
+      }
+      75% {
+        d: path("M 0,200 L 0,75 C 64.21,93.36 128.41,111.72 208,104 C 287.59,96.28 382.56,62.48 470,54 C 557.44,45.52 637.33,62.37 707,60.5 C 776.67,58.63 836.1,38.05 930,48 C 1023.9,57.94 1152.26,98.41 1243,108 C 1333.74,117.59 1386.87,96.29 1440,75 L 1440,200 L 0,200 Z");
+      }
+      100% {
+        d: path("M 0,200 L 0,75 C 76.15,81.03 152.31,87.06 246,94.5 C 339.69,101.94 450.92,110.8 521,95.5 C 591.08,80.2 620,40.73 700,45 C 780,49.27 911.08,97.26 998,102.5 C 1084.92,107.73 1127.69,70.21 1194,58.5 C 1260.31,46.79 1350.15,60.89 1440,75 L 1440,200 L 0,200 Z");
+      }
+    }
+  </style>
+  <path d="M 0,200 L 0,75 C 76.15,81.03 152.31,87.06 246,94.5 C 339.69,101.94 450.92,110.8 521,95.5 C 591.08,80.2 620,40.73 700,45 C 780,49.27 911.08,97.26 998,102.5 C 1084.92,107.73 1127.69,70.21 1194,58.5 C 1260.31,46.79 1350.15,60.89 1440,75 L 1440,200 L 0,200 Z"
+        stroke="none" stroke-width="0" fill="#1d3557" fill-opacity="1"
+        class="transition-all duration-300 ease-in-out delay-150 path-0">
+  </path>
+</svg>
+</div>
+  
 <style>
 /* Modern About Us Section Styles */
 .about-container {
