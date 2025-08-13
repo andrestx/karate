@@ -234,8 +234,8 @@ according to applicable laws!
             --light-gray: #f8f9fa;
         }
         
-       /* Header */
-        header {
+        /* Header */
+          header {
             background: linear-gradient(135deg, var(--secondary), var(--dark));
             color: white;
             padding: 1rem;
@@ -243,7 +243,7 @@ according to applicable laws!
             overflow: hidden;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
-        
+
         .header-content {
             display: flex;
             justify-content: space-between;
@@ -253,43 +253,9 @@ according to applicable laws!
             position: relative;
             z-index: 2;
         }
+
         
-         .designer-name {
-  font-size: 1rem;
-  color: rgba(255, 255, 255, 0.7);
-  position: relative;
-  display: inline-block;
-  transition: color 0.3s ease;
-}
-
-.designer-name::after,
-.designer-name::before {
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 1px;
-  background: linear-gradient(to right, var(--accent), var(--primary));
-  bottom: -2px;
-  left: 0;
-  transform: scaleX(0);
-  transform-origin: right;
-  transition: transform 0.4s ease-out;
-}
-
-.designer-name::before {
-  top: -2px;
-  transform-origin: left;
-}
-
-.designer-name:hover {
-  color: white;
-}
-
-.designer-name:hover::after,
-.designer-name:hover::before {
-  transform: scaleX(1);
-}
-      
+        
         .logo {
             display: flex;
             align-items: center;
@@ -342,6 +308,44 @@ according to applicable laws!
             font-size: 1.5rem;
             cursor: pointer;
         }
+        
+         .designer-name {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.7);
+  position: relative;
+  display: inline-block;
+  transition: color 0.3s ease;
+}
+
+.designer-name::after,
+.designer-name::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(to right, var(--accent), var(--primary));
+  bottom: -2px;
+  left: 0;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s ease-out;
+}
+
+.designer-name::before {
+  top: -2px;
+  transform-origin: left;
+}
+
+.designer-name:hover {
+  color: white;
+}
+
+.designer-name:hover::after,
+.designer-name:hover::before {
+  transform: scaleX(1);
+}
+      
+       
       
        /* Footer */
         footer {
@@ -895,7 +899,6 @@ according to applicable laws!
     </style>
 </head>
 <body>
-   <!-- Header -->
     <header>
         <div class="header-content">
             <div class="logo">
@@ -908,17 +911,17 @@ according to applicable laws!
             <button class="mobile-menu-btn" id="mobileMenuBtn">
                 <i class="fas fa-bars"></i>
             </button>
-           <nav id="mainNav">
+            <nav id="mainNav">
                 <ul>
                     <li><a href="../acasa/">Acasă</a></li>
                     <li><a href="../origine/">Originea Karate-ului</a></li>
                     <li><a href="../activitati/">Activitati</a></li>
                     <li><a href="../instructori/">Instructori</a></li>
                     <li><a href="../sportivi/">Sportivi</a></li>
-                  <!--  <li><a href="../autoaparare/">Autoapărare</a></li>  -->
-                    <li><a href="https://www.store.tskro.org/">Magazin</a></li>
-                    <li><a href="../desprenoi/">Despre Noi</a></li>
-                    <li><a href="../contact/">Contact</a></li>
+                    <li><a href="../autoaparare/">Autoapărare</a></li>
+	            <li><a href="https://www.store.tskro.org/">Magazin</a></li>
+                  <li><a href="../desprenoi/">Despre Noi</a></li>
+                  <li><a href="../contact/">Contact</a></li>
                 </ul>
             </nav>
         </div>
