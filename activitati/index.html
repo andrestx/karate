@@ -33,184 +33,7 @@ according to applicable laws.
   gtag('config', 'G-81JP2C344J');
 </script>
 
-<!-- Notificare Site în Construcție + Login Secret -->
-<div id="construction-notice" style="position:fixed; top:0; left:0; width:100%; height:100vh; background:linear-gradient(145deg, #e0eafc, #cfdef3); display:flex; align-items:center; justify-content:center; flex-direction:column; z-index:9999; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; animation:fadeInPage 1s ease;">
-
-  <!-- Canvas pentru buline -->
-  <canvas id="bubbles-canvas" style="position:absolute; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:0;"></canvas>
-
-  <h1 style="font-size:3em; color:#2c3e50; margin-bottom:12px; animation:slideDown 0.8s ease forwards;">🔧 Site în construcție</h1>
-  <p style="font-size:1.3em; color:#34495e; text-align:center; max-width:520px; line-height:1.4; opacity:0; animation:fadeInText 1s 0.6s forwards;">
-    Pregătim ceva special pentru tine!<br>Lucrăm din greu pentru a finaliza noul nostru site web.<br><br>
-    Ne poți contacta oricând accesând pagina noastră de contact:<br>
-    <a href="https://tskro.org/contact/" target="_blank" style="color:#2980b9; font-weight:600; text-decoration:none;">https://tskro.org/contact/</a>
-  </p>
-
-  <!-- Buton invizibil în colț dreapta jos -->
-  <button id="secret-button" style="position:absolute; bottom:10px; right:10px; opacity:0; width:40px; height:40px; cursor:pointer; border:none; background:none;"></button>
-
-  <!-- Panou Login ascuns -->
-  <div id="login-panel" style="display:none; margin-top:32px; background:#ffffff; padding:28px 32px; box-shadow:0 10px 30px rgba(0,0,0,0.12); border-radius:14px; animation:fadeInPanel 0.4s ease; min-width:320px; position:relative; z-index:10;">
-    <h2 style="margin-bottom:20px; color:#2c3e50; font-weight:600;">🔐 Autentificare</h2>
-    <input type="text" id="username" placeholder="Utilizator" style="padding:12px 14px; margin-bottom:14px; width:100%; border:1.8px solid #ccc; border-radius:8px; font-size:1em; transition: border-color 0.3s, box-shadow 0.3s;"><br>
-    <input type="password" id="password" placeholder="Parolă" style="padding:12px 14px; margin-bottom:20px; width:100%; border:1.8px solid #ccc; border-radius:8px; font-size:1em; transition: border-color 0.3s, box-shadow 0.3s;"><br>
-    <button onclick="verifyLogin()" style="padding:12px 28px; background:#3498db; color:#fff; border:none; border-radius:8px; font-size:1em; cursor:pointer; transition:background 0.3s;">
-      Login
-    </button>
-  </div>
-
-  <!-- Zona de avertizare administrativă (ascunsă la început) -->
-  <div id="admin-alert" style="display:none; margin-top:20px; padding:16px 24px; background:#e74c3c; color:#fff; font-weight:700; border-radius:12px; box-shadow: 0 0 20px rgba(231, 76, 60, 0.8); min-width:320px; max-width:400px; text-align:center; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; animation:fadeInPanel 0.5s ease;">
-    ⚠️ <span style="text-transform:uppercase;">Zona administrativă</span><br>
-    Notificare trimisă administratorului!<br>
-    IP detectat și înregistrat!
-  </div>
-
-  <!-- Footer cu semnătură -->
-    <footer style="position:absolute; bottom:14px; font-size:0.9em; color:#7f8c8d; font-weight:500; user-select:none; z-index:10; background:transparent;">
-    Site făcut de 
-    <a href="https://andreist.great-site.net" target="_blank" rel="noopener noreferrer" style="color:#2980b9; text-decoration:none; font-weight:600;">Andrei Stănescu</a>
-  </footer>
-</div>
-
-<style>
-  @keyframes fadeInPage {
-    from {opacity: 0;}
-    to {opacity: 1;}
-  }
-
-  @keyframes fadeOutPage {
-    to {opacity: 0; visibility: hidden;}
-  }
-
-  @keyframes slideDown {
-    from {transform: translateY(-20px); opacity: 0;}
-    to {transform: translateY(0); opacity: 1;}
-  }
-
-  @keyframes fadeInText {
-    to {opacity: 1;}
-  }
-
-  @keyframes fadeInPanel {
-    from {opacity: 0; transform: scale(0.95);}
-    to {opacity: 1; transform: scale(1);}
-  }
-
-  #login-panel button:hover {
-    background: #2980b9;
-  }
-
-  input:focus {
-    outline: none;
-    border-color: #3498db !important;
-    box-shadow: 0 0 6px rgba(52, 152, 219, 0.5) !important;
-  }
-
-  a:hover {
-    text-decoration: underline;
-  }
-</style>
-
-<script>
-  const canvas = document.getElementById('bubbles-canvas');
-  const ctx = canvas.getContext('2d');
-
-  let width, height;
-  let bubbles = [];
-
-  function resize() {
-    width = canvas.width = canvas.clientWidth;
-    height = canvas.height = canvas.clientHeight;
-  }
-  resize();
-  window.addEventListener('resize', resize);
-
-  class Bubble {
-    constructor() {
-      this.radius = 8 + Math.random() * 7;
-      this.x = Math.random() * width;
-      this.y = Math.random() * height * 0.5 - height;
-      this.vx = (Math.random() - 0.5) * 1.2;
-      this.vy = 0;
-      this.gravity = 0.15 + Math.random() * 0.05;
-      this.color = `hsl(${Math.random() * 360}, 70%, 65%)`;
-      this.bounceFactor = 0.7 + Math.random() * 0.3;
-    }
-
-    update() {
-      this.vy += this.gravity;
-      this.x += this.vx;
-      this.y += this.vy;
-
-      if (this.y + this.radius > height) {
-        this.y = height - this.radius;
-        this.vy *= -this.bounceFactor;
-      }
-      if (this.x + this.radius > width) {
-        this.x = width - this.radius;
-        this.vx *= -1;
-      }
-      if (this.x - this.radius < 0) {
-        this.x = this.radius;
-        this.vx *= -1;
-      }
-    }
-
-    draw() {
-      ctx.beginPath();
-      ctx.fillStyle = this.color;
-      ctx.shadowColor = this.color;
-      ctx.shadowBlur = 6;
-      ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-      ctx.fill();
-    }
-  }
-
-  for(let i=0; i<40; i++){
-    bubbles.push(new Bubble());
-  }
-
-  function animate() {
-    ctx.clearRect(0, 0, width, height);
-    bubbles.forEach(bubble => {
-      bubble.update();
-      bubble.draw();
-    });
-    requestAnimationFrame(animate);
-  }
-  animate();
-
-  const secretBtn = document.getElementById('secret-button');
-  const loginPanel = document.getElementById('login-panel');
-  const adminAlert = document.getElementById('admin-alert');
-  const notice = document.getElementById('construction-notice');
-
-  secretBtn.addEventListener('click', () => {
-    loginPanel.style.display = 'block';
-    loginPanel.style.animation = 'fadeInPanel 0.4s ease';
-    adminAlert.style.display = 'block';
-    adminAlert.style.animation = 'fadeInPanel 0.5s ease';
-  });
-
-  function verifyLogin() {
-    const user = document.getElementById('username').value.trim();
-    const pass = document.getElementById('password').value.trim();
-
-    if (user === 'andrei' && pass === 'andrei') {
-      notice.style.animation = 'fadeOutPage 0.5s ease forwards';
-      setTimeout(() => {
-        notice.style.display = 'none';
-      }, 500);
-    } else {
-      alert('Date incorecte! ADMINISTRATOR SESIZAT! IP INREGISTRAT!');
-    }
-  }
-</script>
-
-
-
-    
+ 
 
     
 
@@ -1368,6 +1191,22 @@ according to applicable laws.
         d: path("M 0,400 L 0,150 C 49.28,172.29 98.56,194.57 164,185 C 229.44,175.43 311.03,133.99 372,127 C 432.97,120.01 473.31,147.45 538,177 C 602.69,206.55 691.71,238.2 743,217 C 794.29,195.8 807.83,121.76 869,112 C 930.17,102.24 1038.97,156.76 1107,171 C 1175.03,185.24 1202.29,159.21 1251,149 C 1299.71,138.79 1369.85,144.39 1440,150 L 1440,400 L 0,400 Z");
       }
     }
+    
+    .button-download {
+  background-color: #dc3545;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-block;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.button-download:hover {
+  background-color: #a71d2a;
+  transform: scale(1.05);
+}
   </style>
 
   <defs>
@@ -1765,8 +1604,8 @@ document.querySelectorAll('.pdf-btn').forEach(button => {
 
         <div class="requirements-card slide-in-right">
             <h3>Pentru examen este necesar:</h3>
-            <p>Urmărirea și aplicarea tehnicilor din programa de examinare.</p>
-           
+            <p>Urmărirea și aplicarea tehnicilor din programa de examinare.</p><br>
+           <a href="../documente/programa.pdf" class="button-download" download>📥 Descarcă programa de examinare</a>
         </div>
     </div>
 
